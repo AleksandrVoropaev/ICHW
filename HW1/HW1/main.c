@@ -34,7 +34,7 @@ void ICParents(){
 
 int main(int argc, const char * argv[]) {
     ICParents();
-    ICEnter(2);
+    ICEnter(3);
     ICParents();
     ICEnter(3);
     return 0;
