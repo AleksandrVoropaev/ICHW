@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F3A831F1CB39293004B5C8F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F3A831E1CB39293004B5C8F /* main.c */; };
+		1F369AE91CB5AE84007D142D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AE01CB5AE84007D142D /* main.c */; };
+		1F369AEA1CB5AE84007D142D /* ICPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AE51CB5AE84007D142D /* ICPrint.c */; };
+		1F369AEE1CB5B31B007D142D /* ICDigitsPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F3A831B1CB39293004B5C8F /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW1; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F3A831E1CB39293004B5C8F /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1F369AE01CB5AE84007D142D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1F369AE11CB5AE84007D142D /* HW1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HW1.xcodeproj; sourceTree = "<group>"; };
+		1F369AE51CB5AE84007D142D /* ICPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICPrint.c; sourceTree = "<group>"; };
+		1F369AE61CB5AE84007D142D /* ICPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPrint.h; sourceTree = "<group>"; };
+		1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICDigitsPrint.c; sourceTree = "<group>"; };
+		1F369AED1CB5B31B007D142D /* ICDigitsPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDigitsPrint.h; sourceTree = "<group>"; };
+		1F3A831B1CB39293004B5C8F /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HW1; path = "/Users/Aleksandr/Git/ICHW/HW 1/build/Debug/HW1"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,28 +45,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F3A83121CB39293004B5C8F = {
+		1F369ADF1CB5AE84007D142D /* HW1 */ = {
 			isa = PBXGroup;
 			children = (
-				1F3A831D1CB39293004B5C8F /* HW1 */,
-				1F3A831C1CB39293004B5C8F /* Products */,
+				1F369AE01CB5AE84007D142D /* main.c */,
 			);
+			path = HW1;
 			sourceTree = "<group>";
 		};
-		1F3A831C1CB39293004B5C8F /* Products */ = {
+		1F369AE21CB5AE84007D142D /* Products */ = {
 			isa = PBXGroup;
-			children = (
-				1F3A831B1CB39293004B5C8F /* HW1 */,
-			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F3A831D1CB39293004B5C8F /* HW1 */ = {
+		1F369AE41CB5AE84007D142D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1F3A831E1CB39293004B5C8F /* main.c */,
+				1F369AE51CB5AE84007D142D /* ICPrint.c */,
+				1F369AE61CB5AE84007D142D /* ICPrint.h */,
+				1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */,
+				1F369AED1CB5B31B007D142D /* ICDigitsPrint.h */,
 			);
-			path = HW1;
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		1F3A83121CB39293004B5C8F = {
+			isa = PBXGroup;
+			children = (
+				1F369ADF1CB5AE84007D142D /* HW1 */,
+				1F369AE11CB5AE84007D142D /* HW1.xcodeproj */,
+				1F369AE41CB5AE84007D142D /* Sources */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,8 +120,14 @@
 				en,
 			);
 			mainGroup = 1F3A83121CB39293004B5C8F;
-			productRefGroup = 1F3A831C1CB39293004B5C8F /* Products */;
+			productRefGroup = 1F3A83121CB39293004B5C8F;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1F369AE21CB5AE84007D142D /* Products */;
+					ProjectRef = 1F369AE11CB5AE84007D142D /* HW1.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1F3A831A1CB39293004B5C8F /* HW1 */,
@@ -118,7 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F3A831F1CB39293004B5C8F /* main.c in Sources */,
+				1F369AE91CB5AE84007D142D /* main.c in Sources */,
+				1F369AEA1CB5AE84007D142D /* ICPrint.c in Sources */,
+				1F369AEE1CB5B31B007D142D /* ICDigitsPrint.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +263,7 @@
 				1F3A83241CB39293004B5C8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
