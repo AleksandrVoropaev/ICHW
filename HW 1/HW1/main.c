@@ -9,12 +9,19 @@
 #include <stdio.h>
 
 #include "ICPrint.h"
+#include "ICPrint.h"
+#include "ICPrint.h"
+#include "ICDigitsPrint.h"
+#include "ICDigitsPrint.h"
 
 int main(int argc, const char * argv[]) {
     ICPrint();
     ICPrintPapa();
     ICPrintMama();
     ICPrintParents();
+    
+    ICIncDigitsPrint();
+    ICDescDigitsPrint();
     
     return 0;
 }

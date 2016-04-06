@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F369AE91CB5AE84007D142D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AE01CB5AE84007D142D /* main.c */; };
 		1F369AEA1CB5AE84007D142D /* ICPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AE51CB5AE84007D142D /* ICPrint.c */; };
+		1F369AEE1CB5B31B007D142D /* ICDigitsPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		1F369AE11CB5AE84007D142D /* HW1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HW1.xcodeproj; sourceTree = "<group>"; };
 		1F369AE51CB5AE84007D142D /* ICPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICPrint.c; sourceTree = "<group>"; };
 		1F369AE61CB5AE84007D142D /* ICPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPrint.h; sourceTree = "<group>"; };
+		1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICDigitsPrint.c; sourceTree = "<group>"; };
+		1F369AED1CB5B31B007D142D /* ICDigitsPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICDigitsPrint.h; sourceTree = "<group>"; };
 		1F3A831B1CB39293004B5C8F /* HW1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HW1; path = "/Users/Aleksandr/Git/ICHW/HW 1/build/Debug/HW1"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +63,8 @@
 			children = (
 				1F369AE51CB5AE84007D142D /* ICPrint.c */,
 				1F369AE61CB5AE84007D142D /* ICPrint.h */,
+				1F369AEC1CB5B31B007D142D /* ICDigitsPrint.c */,
+				1F369AED1CB5B31B007D142D /* ICDigitsPrint.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			files = (
 				1F369AE91CB5AE84007D142D /* main.c in Sources */,
 				1F369AEA1CB5AE84007D142D /* ICPrint.c in Sources */,
+				1F369AEE1CB5B31B007D142D /* ICDigitsPrint.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
