@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "ICVariablesPrint.h"
 #include "ICIncrementDecrement.h"
+#include "ICOperationsWithDoubles.h"
+#include "ICOperationsWithIntAndFloat.h"
 
 int main(int argc, const char * argv[]) {
     int integerValue = 1;
@@ -25,6 +27,8 @@ int main(int argc, const char * argv[]) {
     printf("%d\n", ICDecrement(valueForDecrementation));
     
     ICDivideEquation();
+    
+    ICIntAndFloat();
     
     return 0;
 }

@@ -11,6 +11,7 @@
 		1F369B3C1CB68128007D142D /* ICIncrementDecrement.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B2E1CB68128007D142D /* ICIncrementDecrement.c */; };
 		1F369B3D1CB68128007D142D /* ICOperationsWithDoubles.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B301CB68128007D142D /* ICOperationsWithDoubles.c */; };
 		1F369B3E1CB68128007D142D /* ICVariablesPrint.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B321CB68128007D142D /* ICVariablesPrint.c */; };
+		1F369B441CB6857F007D142D /* ICOperationsWithIntAndFloat.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B421CB6857F007D142D /* ICOperationsWithIntAndFloat.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		1F369B311CB68128007D142D /* ICOperationsWithDoubles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOperationsWithDoubles.h; sourceTree = "<group>"; };
 		1F369B321CB68128007D142D /* ICVariablesPrint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICVariablesPrint.c; sourceTree = "<group>"; };
 		1F369B331CB68128007D142D /* ICVariablesPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICVariablesPrint.h; sourceTree = "<group>"; };
+		1F369B421CB6857F007D142D /* ICOperationsWithIntAndFloat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICOperationsWithIntAndFloat.c; sourceTree = "<group>"; };
+		1F369B431CB6857F007D142D /* ICOperationsWithIntAndFloat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICOperationsWithIntAndFloat.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				1F369B311CB68128007D142D /* ICOperationsWithDoubles.h */,
 				1F369B321CB68128007D142D /* ICVariablesPrint.c */,
 				1F369B331CB68128007D142D /* ICVariablesPrint.h */,
+				1F369B421CB6857F007D142D /* ICOperationsWithIntAndFloat.c */,
+				1F369B431CB6857F007D142D /* ICOperationsWithIntAndFloat.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F369B441CB6857F007D142D /* ICOperationsWithIntAndFloat.c in Sources */,
 				1F369B3E1CB68128007D142D /* ICVariablesPrint.c in Sources */,
 				1F369B3D1CB68128007D142D /* ICOperationsWithDoubles.c in Sources */,
 				1F369B3C1CB68128007D142D /* ICIncrementDecrement.c in Sources */,
