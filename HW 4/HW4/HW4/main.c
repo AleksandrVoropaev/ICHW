@@ -24,5 +24,7 @@ int main(int argc, const char * argv[]) {
     printf("%d\n", ICIncrement(valueForIncrementation));
     printf("%d\n", ICDecrement(valueForDecrementation));
     
+    ICDivideEquation();
+    
     return 0;
 }
