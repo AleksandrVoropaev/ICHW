@@ -25,4 +25,6 @@ void ICCheckTheDeputy(float salary, float wealth);
 
 void ICPrintTheArray();
 
+void ICPrintString();
+
 #endif /* ICPrintOperations_h */

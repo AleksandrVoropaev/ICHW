@@ -23,5 +23,7 @@ int main(int argc, const char * argv[]) {
     
     ICPrintTheArray();
     
+    ICPrintString();
+    
     return 0;
 }

@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 
+#include "string.h"
 #include "ICPrintOperations.h"
 #include "ICMathOperations.h"
 
@@ -88,3 +89,16 @@ void ICPrintTheArray() {
     puts("");
 }
 
+void ICPrintString() {
+    const char nilTerminated[] = "String";
+    const char nilNotTerminated[] = {'S', 't', 'r', 'i', 'n', 'g'};
+    
+    for (int iterator = 0; iterator < strlen(nilTerminated)+1; iterator++ ) {
+        printf("%c", nilTerminated[iterator]);
+    }
+    puts("");
+    for (int iterator = 0; iterator < strlen(nilNotTerminated)+1; iterator++) {
+        printf("%c", nilNotTerminated[iterator]);
+    }
+    puts("");
+}
