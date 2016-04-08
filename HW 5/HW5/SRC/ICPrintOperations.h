@@ -22,9 +22,8 @@ typedef enum {
 
 void ICPrintHonestyLevel(ICDeputyHonestyLevel honestyLevel);
 void ICCheckTheDeputy(float salary, float wealth);
-
 void ICPrintTheArray();
-
 void ICPrintString();
+void ICPrintStringLength();
 
 #endif /* ICPrintOperations_h */

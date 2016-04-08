@@ -100,5 +100,16 @@ void ICPrintString() {
     for (int iterator = 0; iterator < strlen(nilNotTerminated)+1; iterator++) {
         printf("%c", nilNotTerminated[iterator]);
     }
-    puts("");
+    printf("\n\n");
+}
+
+void ICPrintStringLength() {
+    const char firstString[] = "String";
+    const char secondString[] = {'S', 't', 'r', 'i', 'n', 'g'};
+    if ('\0', firstString[strlen(firstString)]) {
+        printf("%ld", strlen(firstString));
+    }
+    if ('\0', secondString[strlen(secondString)]) {
+        printf("%ld", strlen(secondString));
+    }
 }

@@ -20,10 +20,9 @@ int main(int argc, const char * argv[]) {
     ICPrintMamaPapaSelection(1, 2);
     ICPrintMamaPapaIfElseSelection(2, 1);
     ICCheckTheDeputy(15, 150000);
-    
     ICPrintTheArray();
-    
     ICPrintString();
+    ICPrintStringLength();
     
     return 0;
 }
