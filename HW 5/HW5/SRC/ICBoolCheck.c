@@ -7,10 +7,10 @@
 //
 
 #include <stdio.h>
-//#include <stbool.h>
+#include <stdbool.h>
 
-//#include "ICBoolCheck.h"
-//
-//void ICCheckTheBool(bool boolForCheck) {
-//    (boolForCheck == 1) ? printf("The Bool is True\n") : printf("The Bool is False\n");
-//}
+#include "ICBoolCheck.h"
+
+void ICCheckTheBool(bool boolForCheck) {
+    (boolForCheck == 1) ? printf("The Bool is True\n") : printf("The Bool is False\n");
+}

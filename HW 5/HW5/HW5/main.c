@@ -7,12 +7,21 @@
 //
 
 #include <stdio.h>
-//#include <stbool.h>
+#include <stdbool.h>
 
-//#include "ICBoolCheck.h"
+#include "ICBoolCheck.h"
+#include "ICPrintOperations.h"
 
 int main(int argc, const char * argv[]) {
-//    ICCheckTheBool(bool boolValue = true);
+    bool boolValue = true;
+    ICCheckTheBool(boolValue);
+    
+    ICPrintResultOfBoolCompare();
+    ICPrintMamaPapaSelection(1, 2);
+    ICPrintMamaPapaIfElseSelection(2, 1);
+    ICCheckTheDeputy(15, 150000);
+    
+    ICPrintTheArray();
     
     return 0;
 }

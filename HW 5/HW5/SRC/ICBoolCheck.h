@@ -10,8 +10,7 @@
 #define ICBoolCheck_h
 
 #include <stdio.h>
-//#include <stbool.h>
 
-//void ICCheckTheBool(bool);
+void ICCheckTheBool(bool boolForCheck);
 
 #endif /* ICBoolCheck_h */

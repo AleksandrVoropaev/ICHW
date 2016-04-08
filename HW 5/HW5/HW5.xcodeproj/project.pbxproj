@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F369B621CB6B25B007D142D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B5D1CB6B25B007D142D /* main.c */; };
 		1F369B651CB6B28A007D142D /* ICBoolCheck.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B631CB6B28A007D142D /* ICBoolCheck.c */; };
+		1F59D5D11CB7884200905F57 /* ICMathOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F59D5CF1CB7884200905F57 /* ICMathOperations.c */; };
+		1F59D5D71CB78CFA00905F57 /* ICPrintOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +26,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F369B521CB6B22C007D142D /* HW5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = HW5; path = "/Users/Aleksandr/Git/ICHW/HW 5/HW5/build/Debug/HW5"; sourceTree = "<absolute>"; };
 		1F369B5D1CB6B25B007D142D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1F369B5E1CB6B25B007D142D /* HW5.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = HW5.xcodeproj; sourceTree = "<group>"; };
 		1F369B631CB6B28A007D142D /* ICBoolCheck.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICBoolCheck.c; sourceTree = "<group>"; };
 		1F369B641CB6B28A007D142D /* ICBoolCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBoolCheck.h; sourceTree = "<group>"; };
+		1F59D5CE1CB7874300905F57 /* HW5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HW5; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F59D5CF1CB7884200905F57 /* ICMathOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICMathOperations.c; sourceTree = "<group>"; };
+		1F59D5D01CB7884200905F57 /* ICMathOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMathOperations.h; sourceTree = "<group>"; };
+		1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICPrintOperations.c; sourceTree = "<group>"; };
+		1F59D5D61CB78CFA00905F57 /* ICPrintOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPrintOperations.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,7 @@
 				1F369B5C1CB6B25B007D142D /* HW5 */,
 				1F369B5E1CB6B25B007D142D /* HW5.xcodeproj */,
 				1F369B611CB6B25B007D142D /* SRC */,
+				1F59D5CE1CB7874300905F57 /* HW5 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +76,10 @@
 			children = (
 				1F369B631CB6B28A007D142D /* ICBoolCheck.c */,
 				1F369B641CB6B28A007D142D /* ICBoolCheck.h */,
+				1F59D5CF1CB7884200905F57 /* ICMathOperations.c */,
+				1F59D5D01CB7884200905F57 /* ICMathOperations.h */,
+				1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */,
+				1F59D5D61CB78CFA00905F57 /* ICPrintOperations.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -90,7 +101,7 @@
 			);
 			name = HW5;
 			productName = HW5;
-			productReference = 1F369B521CB6B22C007D142D /* HW5 */;
+			productReference = 1F59D5CE1CB7874300905F57 /* HW5 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -136,6 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F369B651CB6B28A007D142D /* ICBoolCheck.c in Sources */,
+				1F59D5D71CB78CFA00905F57 /* ICPrintOperations.c in Sources */,
+				1F59D5D11CB7884200905F57 /* ICMathOperations.c in Sources */,
 				1F369B621CB6B25B007D142D /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +270,7 @@
 				1F369B5B1CB6B22C007D142D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
