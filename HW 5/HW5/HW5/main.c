@@ -11,6 +11,7 @@
 
 #include "ICBoolCheck.h"
 #include "ICPrintOperations.h"
+#include "ICMathOperations.h"
 
 int main(int argc, const char * argv[]) {
     bool boolValue = true;
@@ -21,8 +22,12 @@ int main(int argc, const char * argv[]) {
     ICPrintMamaPapaIfElseSelection(2, 1);
     ICCheckTheDeputy(15, 150000);
     ICPrintTheArray();
-    ICPrintString();
+    ICPrintNillTerminatedString("String");
+    const char string[] = {'S', 't', 'r', 'i', 'n', 'g'};
+    ICPrintNillNotTerminatedString( 6, string);
     ICPrintNillTerminatedStringLength("String");
+    ICPrintArray(5, 1, 100);
+    ICDecisionMamaPapa(44);
     
     return 0;
 }

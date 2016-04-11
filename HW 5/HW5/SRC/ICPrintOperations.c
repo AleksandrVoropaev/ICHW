@@ -85,20 +85,62 @@ void ICPrintTheArray() {
     puts("");
 }
 
-void ICPrintString() {
-    const char nilTerminated[] = "String";
-    const char nilNotTerminated[] = {'S', 't', 'r', 'i', 'n', 'g'};
-    
-    for (int iterator = 0; iterator < strlen(nilTerminated)+1; iterator++ ) {
-        printf("%c", nilTerminated[iterator]);
+void ICPrintNillTerminatedString(const char string[]) {
+    for (int iterator = 0; iterator < strlen(string)+1; iterator++ ) {
+        printf("%c ", string[iterator]);
     }
     puts("");
-    for (int iterator = 0; iterator < strlen(nilNotTerminated)+1; iterator++) {
-        printf("%c", nilNotTerminated[iterator]);
+}
+
+void ICPrintNillNotTerminatedString(int length, const char string[]) {
+    for (int iterator = 0; iterator < length + 1; iterator++) {
+        printf("%c ", string[iterator]);
     }
-    printf("\n\n");
+    puts("");
 }
 
 void ICPrintNillTerminatedStringLength(const char string[]) {
-        printf("%ld\n", strlen(string));
+    printf("%ld\n", strlen(string));
+//    const char testString[10] = "Hi";
+//    printf("%s-\n", testString);
+//    const char testString[10] = "Hello, how are you?";
+//    printf("%s\n", testString);
+//    const char testString[] = "Hello\0, how are you?";
+//    printf("%s\n", testString);
+}
+
+void ICArrayLengthFromStringLength(const char string[]) {
+    unsigned int length = strlen(string);
+    int array[length];
+}
+
+void ICPrintArray(unsigned int count, int minValue, int maxValue) {
+    (count > 50) ? count = 50 : count;
+    
+    for (int value = minValue; value < maxValue; value++) {
+        if (0 == (value % 3)) {
+            continue;
+        }
+        
+        if (50 == value) {
+            break;
+        }
+        
+        for (unsigned int iterator = 1; iterator < count + 1; iterator++) {
+            printf("%d ", value);
+        }
+        puts("");
+    }
+}
+
+void ICPrintMama() {
+    printf("Mama");
+}
+
+void ICPrintPapa() {
+    printf("Papa");
+}
+
+void ICPrintNewLine() {
+    printf("\n");
 }

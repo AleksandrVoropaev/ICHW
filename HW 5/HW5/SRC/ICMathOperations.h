@@ -11,7 +11,15 @@
 
 #include <stdbool.h>
 
+typedef enum {
+    mama,
+    papa,
+    mamapapa,
+    none,
+} ICMamaPapaOption;
+
 bool ICAndOperation(bool firstValue, bool secondValue);
 bool ICOrOperation(bool firstValue, bool secondValue);
+void ICDecisionMamaPapa(int value);
 
 #endif /* ICMathOperations_h */
