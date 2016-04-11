@@ -7,27 +7,11 @@
 //
 
 #include <stdio.h>
-#include <stdbool.h>
 
-#include "ICBoolCheck.h"
-#include "ICPrintOperations.h"
-#include "ICMathOperations.h"
+#include "ICRunAplication.h"
 
 int main(int argc, const char * argv[]) {
-    bool boolValue = true;
-    ICCheckTheBool(boolValue);
-    
-    ICPrintResultOfBoolCompare();
-    ICPrintMamaPapaSelection(1, 2);
-    ICPrintMamaPapaIfElseSelection(2, 1);
-    ICCheckTheDeputy(15, 150000);
-    ICPrintTheArray();
-    ICPrintNillTerminatedString("String");
-    const char string[] = {'S', 't', 'r', 'i', 'n', 'g'};
-    ICPrintNillNotTerminatedString( 6, string);
-    ICPrintNillTerminatedStringLength("String");
-    ICPrintArray(5, 1, 100);
-    ICDecisionMamaPapa(44);
+    ICRunAll();
     
     return 0;
 }

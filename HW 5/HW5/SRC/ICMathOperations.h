@@ -12,10 +12,9 @@
 #include <stdbool.h>
 
 typedef enum {
-    mama,
-    papa,
-    mamapapa,
-    none,
+    ICMama,
+    ICPapa,
+    ICMamaPapa,
 } ICMamaPapaOption;
 
 bool ICAndOperation(bool firstValue, bool secondValue);

@@ -11,6 +11,7 @@
 		1F369B651CB6B28A007D142D /* ICBoolCheck.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F369B631CB6B28A007D142D /* ICBoolCheck.c */; };
 		1F59D5D11CB7884200905F57 /* ICMathOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F59D5CF1CB7884200905F57 /* ICMathOperations.c */; };
 		1F59D5D71CB78CFA00905F57 /* ICPrintOperations.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */; };
+		1FC6BE601CBC0716002D2814 /* ICRunAplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE5E1CBC0716002D2814 /* ICRunAplication.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,8 @@
 		1F59D5D01CB7884200905F57 /* ICMathOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMathOperations.h; sourceTree = "<group>"; };
 		1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICPrintOperations.c; sourceTree = "<group>"; };
 		1F59D5D61CB78CFA00905F57 /* ICPrintOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPrintOperations.h; sourceTree = "<group>"; };
+		1FC6BE5E1CBC0716002D2814 /* ICRunAplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICRunAplication.c; sourceTree = "<group>"; };
+		1FC6BE5F1CBC0716002D2814 /* ICRunAplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICRunAplication.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,8 @@
 				1F59D5D01CB7884200905F57 /* ICMathOperations.h */,
 				1F59D5D51CB78CFA00905F57 /* ICPrintOperations.c */,
 				1F59D5D61CB78CFA00905F57 /* ICPrintOperations.h */,
+				1FC6BE5E1CBC0716002D2814 /* ICRunAplication.c */,
+				1FC6BE5F1CBC0716002D2814 /* ICRunAplication.h */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 				1F59D5D71CB78CFA00905F57 /* ICPrintOperations.c in Sources */,
 				1F59D5D11CB7884200905F57 /* ICMathOperations.c in Sources */,
 				1F369B621CB6B25B007D142D /* main.c in Sources */,
+				1FC6BE601CBC0716002D2814 /* ICRunAplication.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
