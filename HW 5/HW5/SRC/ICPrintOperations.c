@@ -61,7 +61,6 @@ void ICCheckTheDeputy(float salary, float wealth) {
 }
 
 void ICPrintTheArray() {
-//    int *firstArray = {0, 1, 2, 3};
     int secondArray[] = {0, 1, 2, 3};
     int thirdArray[4];
     thirdArray[0] = 0;
@@ -69,9 +68,6 @@ void ICPrintTheArray() {
     thirdArray[2] = 2;
     thirdArray[3] = 3;
     
-//    for (int iterator = 0; iterator < 3; iterator++) {
-//        printf("%d ", firstArray[iterator]);
-//    }
     puts("");
     
     int iterator = 0;
@@ -103,13 +99,6 @@ void ICPrintString() {
     printf("\n\n");
 }
 
-void ICPrintStringLength() {
-    const char firstString[] = "String";
-    const char secondString[] = {'S', 't', 'r', 'i', 'n', 'g'};
-    if ('\0', firstString[strlen(firstString)]) {
-        printf("%ld", strlen(firstString));
-    }
-    if ('\0', secondString[strlen(secondString)]) {
-        printf("%ld", strlen(secondString));
-    }
+void ICPrintNillTerminatedStringLength(const char string[]) {
+        printf("%ld\n", strlen(string));
 }

@@ -24,6 +24,6 @@ void ICPrintHonestyLevel(ICDeputyHonestyLevel honestyLevel);
 void ICCheckTheDeputy(float salary, float wealth);
 void ICPrintTheArray();
 void ICPrintString();
-void ICPrintStringLength();
+void ICPrintNillTerminatedStringLength();
 
 #endif /* ICPrintOperations_h */

@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     ICCheckTheDeputy(15, 150000);
     ICPrintTheArray();
     ICPrintString();
-    ICPrintStringLength();
+    ICPrintNillTerminatedStringLength("String");
     
     return 0;
 }
