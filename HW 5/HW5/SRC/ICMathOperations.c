@@ -23,33 +23,32 @@ bool ICOrOperation(bool firstValue, bool secondValue) {
     return result;
 }
 
-void ICDecisionMamaPapa(int value) {
-    ICMamaPapaOption decision;
-    if (0 == value % 3) {
-        decision = ICMama;
-    } else if (0 == value % 5) {
-        decision = ICPapa;
-    }
+ICVarietyOfOptionsToBePrintedAmongMamaPapaOrNewLine ICPrintMamaPapaOptionAccordingToGivenVariable(int value) {
+    ICVarietyOfOptionsToBePrintedAmongMamaPapaOrNewLine option;
     
     if (0 == value % 15) {
-        decision = ICMamaPapa;
+        option = ICPrintedMamaPapa;
+    } else if (0 == value % 3) {
+        option = ICPrintedMama;
+    } else if (0 == value % 5) {
+        option = ICPrintedPapa;
+    } else {
+        option = ICNothigPrinted;
     }
     
-    switch (decision) {
-        case ICMama:
+    switch (option) {
+        case ICPrintedMamaPapa:
             ICPrintMama();
-            ICPrintNewLine();
-            break;
-        case ICPapa:
+        case ICPrintedPapa:
             ICPrintPapa();
-            ICPrintNewLine();
             break;
-        case ICMamaPapa:
+        case ICPrintedMama:
             ICPrintMama();
-            ICPrintPapa();
-            ICPrintNewLine();
             break;
         default:
             break;
     }
+    ICPrintNewLine();
+            
+    return option;
 }
