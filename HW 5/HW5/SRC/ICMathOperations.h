@@ -15,11 +15,11 @@ typedef enum {
     ICPrintedMama,
     ICPrintedPapa,
     ICPrintedMamaPapa,
-    ICNothigPrinted,
-} ICVarietyOfOptionsToBePrintedAmongMamaPapaOrNewLine;
+    ICPrintedNothig,
+} ICPrintType;
 
 bool ICAndOperation(bool firstValue, bool secondValue);
 bool ICOrOperation(bool firstValue, bool secondValue);
-ICVarietyOfOptionsToBePrintedAmongMamaPapaOrNewLine ICPrintMamaPapaOptionAccordingToGivenVariable(int value);
+ICPrintType ICMamaPapaPrintTypePrintWithVariable(int value);
 
 #endif /* ICMathOperations_h */
