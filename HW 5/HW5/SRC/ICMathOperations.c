@@ -26,27 +26,25 @@ bool ICOrOperation(bool firstValue, bool secondValue) {
 void ICDecisionMamaPapa(int value) {
     ICMamaPapaOption decision;
     if (0 == value % 3) {
-        decision = mama;
+        decision = ICMama;
     } else if (0 == value % 5) {
-        decision = papa;
-    } else {
-        decision = none;
+        decision = ICPapa;
     }
     
     if (0 == value % 15) {
-        decision = mamapapa;
+        decision = ICMamaPapa;
     }
     
     switch (decision) {
-        case mama:
+        case ICMama:
             ICPrintMama();
             ICPrintNewLine();
             break;
-        case papa:
+        case ICPapa:
             ICPrintPapa();
             ICPrintNewLine();
             break;
-        case mamapapa:
+        case ICMamaPapa:
             ICPrintMama();
             ICPrintPapa();
             ICPrintNewLine();
