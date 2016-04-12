@@ -24,17 +24,25 @@ bool ICOrOperation(bool firstValue, bool secondValue) {
 }
 
 ICPrintType ICMamaPapaPrintTypePrintWithVariable(int value) {
-    ICPrintType option = ICPrintedNothig;
+    ICPrintType printType = ICPrintedNothig;
     
     if (0 == value % 3) {
-        option = ICPrintedMama;
+        printType = ICPrintedMama;
         ICPrintMama();
     }
+    
     if (0 == value % 5) {
-        option++;
+        printType = ICPrintedPapa;
         ICPrintPapa();
     }
-    ICPrintNewLine();
     
-    return option;
+    if (0 == value % 15) {
+        printType++;
+    }
+    
+    if (printType) {
+        ICPrintNewLine();
+    }
+    
+    return printType;
 }

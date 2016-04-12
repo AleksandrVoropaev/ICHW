@@ -27,5 +27,5 @@ void ICRunAll() {
     ICPrintNillNotTerminatedString( 6, string);
     ICPrintNillTerminatedStringLength("String");
     ICPrintArray(5, 1, 100);
-    ICMamaPapaPrintTypePrintWithVariable(15);
+    printf("%d\n", ICMamaPapaPrintTypePrintWithVariable(1));
 }

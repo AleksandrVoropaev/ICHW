@@ -12,14 +12,15 @@
 #include <stdbool.h>
 
 typedef enum {
+    ICPrintedNothig,
     ICPrintedMama,
     ICPrintedPapa,
     ICPrintedMamaPapa,
-    ICPrintedNothig,
 } ICPrintType;
 
 bool ICAndOperation(bool firstValue, bool secondValue);
 bool ICOrOperation(bool firstValue, bool secondValue);
+
 ICPrintType ICMamaPapaPrintTypePrintWithVariable(int value);
 
 #endif /* ICMathOperations_h */
