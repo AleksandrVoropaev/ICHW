@@ -13,19 +13,23 @@
 #include "ICPrintOperations.h"
 #include "ICMathOperations.h"
 
-void ICRunAll() {
-    bool boolValue = true;
-    ICCheckTheBool(boolValue);
+void ICRunApplication() {
+    ICPrintBoolValue(true);
 
-    ICPrintResultOfBoolCompare();
+    ICPrintBoolComparisonResult();
+    
     ICPrintMamaPapaSelection(1, 2);
     ICPrintMamaPapaIfElseSelection(2, 1);
-    ICCheckTheDeputy(15, 150000);
-    ICPrintTheArray();
-    ICPrintNillTerminatedString("String");
+    
+    ICPrintDeputyHonestWithSalaryAndWeals(15, 150000);
+    
+    ICPrintTwoArrays();
+    
     const char string[] = {'S', 't', 'r', 'i', 'n', 'g'};
-    ICPrintNillNotTerminatedString( 6, string);
-    ICPrintNillTerminatedStringLength("String");
-    ICPrintArray(5, 1, 100);
-    printf("%d\n", ICMamaPapaPrintTypePrintWithVariable(1));
+    ICPrintStringWithLength(string, 6);
+    ICPrintString("String");
+    
+    ICPrintArrayWithoutThirdsValues(5, 1, 100);
+    
+    printf("%d\n", ICMamaPapaPrintTypeWithVariable(15));
 }

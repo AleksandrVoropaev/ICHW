@@ -12,32 +12,24 @@
 #include "ICPrintOperations.h"
 
 bool ICAndOperation(bool firstValue, bool secondValue) {
-    bool result = firstValue && secondValue;
-    
-    return result;
+    return firstValue && secondValue;
 }
 
 bool ICOrOperation(bool firstValue, bool secondValue) {
-    bool result = firstValue || secondValue;
-    
-    return result;
+    return firstValue || secondValue;
 }
 
-ICPrintType ICMamaPapaPrintTypePrintWithVariable(int value) {
+ICPrintType ICMamaPapaPrintTypeWithVariable(int value) {
     ICPrintType printType = ICPrintedNothig;
     
     if (0 == value % 3) {
-        printType = ICPrintedMama;
+        printType += ICPrintedMama;
         ICPrintMama();
     }
     
     if (0 == value % 5) {
-        printType = ICPrintedPapa;
+        printType += ICPrintedPapa;
         ICPrintPapa();
-    }
-    
-    if (0 == value % 15) {
-        printType++;
     }
     
     if (printType) {

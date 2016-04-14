@@ -9,6 +9,6 @@
 #ifndef ICRunAplication_h
 #define ICRunAplication_h
 
-void ICRunAll();
+void ICRunApplication();
 
 #endif /* ICRunAplication_h */

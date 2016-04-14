@@ -6,12 +6,10 @@
 //  Copyright © 2016 Aleksandr Voropaev. All rights reserved.
 //
 
-#include <stdio.h>
-
 #include "ICRunAplication.h"
 
 int main(int argc, const char * argv[]) {
-    ICRunAll();
+    ICRunApplication();
     
     return 0;
 }

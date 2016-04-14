@@ -21,6 +21,6 @@ typedef enum {
 bool ICAndOperation(bool firstValue, bool secondValue);
 bool ICOrOperation(bool firstValue, bool secondValue);
 
-ICPrintType ICMamaPapaPrintTypePrintWithVariable(int value);
+ICPrintType ICMamaPapaPrintTypeWithVariable(int value);
 
 #endif /* ICMathOperations_h */
