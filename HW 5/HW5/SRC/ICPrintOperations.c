@@ -129,7 +129,7 @@ void ICPrintArrayWithoutThirdsValues(unsigned int count, int minValue, int maxVa
         }
         
         for (unsigned int iterator = 1; iterator < count + 1; iterator++) {
-            printf("%d ", value);
+            printf("%3d ", value);
         }
         
         puts("");
