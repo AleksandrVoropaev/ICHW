@@ -8,4 +8,8 @@
 
 #include "ICMacrosTest.h"
 
-ICPrintGeneratedFunctionResult(int, 12, i);
+ICGenerateFunctionWithTypeAndSpecifier(int, i)
+
+void ICRunMacros() {
+    ICRunGeneratedFunction(int, 12);
+}

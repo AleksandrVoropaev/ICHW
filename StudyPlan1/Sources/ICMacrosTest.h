@@ -11,15 +11,15 @@
 
 #include <stdio.h>
 
-#define ICMacrosGenerateFunction(type, argument) \
-        #type ICOutput_#type(void) { \
-            #type variable = argument; \
-            return variable; \
-        }
+#define ICGenerateFunctionWithTypeAndSpecifier(type, specifier) \
+    void ICOutput_##type(type variable) { \
+        printf(#type " value is %" #specifier "\n", variable); \
+    }
 
-#define ICPrintGeneratedFunctionResult(type, argument, specificator) \
-        ICMacrosGenerateFunction(#type, #argument); \
-        #type result = ICOutput_#type(); \
-        printf("%" #specificator, result)
+#define ICRunGeneratedFunction(type, argument) \
+    type variable = argument; \
+    ICOutput_##type(variable)
+
+void ICRunMacros();
 
 #endif /* ICMacrosTest_h */

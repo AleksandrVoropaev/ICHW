@@ -9,7 +9,9 @@
 #include "ICRunApplication.h"
 #include "ICMathFunctions.h"
 #include "ICPrintFunctions.h"
+#include "ICMacrosTest.h"
 
 void ICRunAll() {
     ICPrintSize();
+    ICRunMacros();
 }
