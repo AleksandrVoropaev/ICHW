@@ -9,6 +9,4 @@
 #ifndef ICMathFunctions_h
 #define ICMathFunctions_h
 
-#include <stdio.h>
-
 #endif /* ICMathFunctions_h */

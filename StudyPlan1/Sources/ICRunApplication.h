@@ -9,8 +9,6 @@
 #ifndef ICRunApplication_h
 #define ICRunApplication_h
 
-#include <stdio.h>
-
 void ICRunAll();
 
 #endif /* ICRunApplication_h */

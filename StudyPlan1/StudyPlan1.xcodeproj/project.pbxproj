@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F38262C1CCE6BC90027CD84 /* ICMacrosTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F38262A1CCE6BC90027CD84 /* ICMacrosTest.c */; };
 		1FC6BE7C1CBFC33A002D2814 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE781CBFC33A002D2814 /* main.c */; };
 		1FC6BE7F1CBFC359002D2814 /* ICRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE7D1CBFC359002D2814 /* ICRunApplication.c */; };
 		1FC6BE821CBFC3F8002D2814 /* ICPrintFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE801CBFC3F8002D2814 /* ICPrintFunctions.c */; };
@@ -26,7 +27,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1FC6BE6C1CBFC2DC002D2814 /* StudyPlan1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = StudyPlan1; path = /Users/Aleksandr/Git/ICHW/StudyPlan1/build/Debug/StudyPlan1; sourceTree = "<absolute>"; };
+		1F3826291CCE6B940027CD84 /* StudyPlan1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudyPlan1; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F38262A1CCE6BC90027CD84 /* ICMacrosTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICMacrosTest.c; sourceTree = "<group>"; };
+		1F38262B1CCE6BC90027CD84 /* ICMacrosTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMacrosTest.h; sourceTree = "<group>"; };
 		1FC6BE781CBFC33A002D2814 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1FC6BE791CBFC33A002D2814 /* StudyPlan1.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = StudyPlan1.xcodeproj; sourceTree = "<group>"; };
 		1FC6BE7D1CBFC359002D2814 /* ICRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICRunApplication.c; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 				1FC6BE761CBFC33A002D2814 /* Sources */,
 				1FC6BE771CBFC33A002D2814 /* StudyPlan1 */,
 				1FC6BE791CBFC33A002D2814 /* StudyPlan1.xcodeproj */,
+				1F3826291CCE6B940027CD84 /* StudyPlan1 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +70,8 @@
 				1FC6BE811CBFC3F8002D2814 /* ICPrintFunctions.h */,
 				1FC6BE831CBFC414002D2814 /* ICMathFunctions.c */,
 				1FC6BE841CBFC414002D2814 /* ICMathFunctions.h */,
+				1F38262A1CCE6BC90027CD84 /* ICMacrosTest.c */,
+				1F38262B1CCE6BC90027CD84 /* ICMacrosTest.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -100,7 +106,7 @@
 			);
 			name = StudyPlan1;
 			productName = StudyPlan1;
-			productReference = 1FC6BE6C1CBFC2DC002D2814 /* StudyPlan1 */;
+			productReference = 1F3826291CCE6B940027CD84 /* StudyPlan1 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -146,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FC6BE7F1CBFC359002D2814 /* ICRunApplication.c in Sources */,
+				1F38262C1CCE6BC90027CD84 /* ICMacrosTest.c in Sources */,
 				1FC6BE851CBFC414002D2814 /* ICMathFunctions.c in Sources */,
 				1FC6BE7C1CBFC33A002D2814 /* main.c in Sources */,
 				1FC6BE821CBFC3F8002D2814 /* ICPrintFunctions.c in Sources */,
@@ -269,6 +276,7 @@
 				1FC6BE751CBFC2DC002D2814 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

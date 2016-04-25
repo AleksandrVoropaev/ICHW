@@ -9,8 +9,6 @@
 #ifndef ICPrintFunctions_h
 #define ICPrintFunctions_h
 
-#include <stdio.h>
-
 void ICPrintSize();
 
 #endif /* ICPrintFunctions_h */

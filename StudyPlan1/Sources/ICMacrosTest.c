@@ -7,3 +7,5 @@
 //
 
 #include "ICMacrosTest.h"
+
+ICPrintGeneratedFunctionResult(int, 12, i);
