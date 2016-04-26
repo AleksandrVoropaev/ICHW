@@ -75,9 +75,10 @@ struct ICStructureWithBitfield {
 
 void ICPrintOffsetOfStruct();
 void ICPrintSizeOfStruct();
-void ICPrintOffsetOfOptimizedStruct();
+void ICPrintOffsetOfSortedStruct();
 void ICPrintSizeOfOptimizedStruct();
 void ICPrintOffsetOfStructWithBitfield();
 void ICPrintSizeOfStructWithBitfield();
+void ICPrintBitfield();
 
 #endif /* ICBitfieldTest_h */

@@ -17,8 +17,9 @@ void ICRunAplication() {
     ICRunMacros();
     ICPrintOffsetOfStruct();
     ICPrintSizeOfStruct();
-    ICPrintOffsetOfOptimizedStruct();
+    ICPrintOffsetOfSortedStruct();
     ICPrintSizeOfOptimizedStruct();
     ICPrintOffsetOfStructWithBitfield();
     ICPrintSizeOfStructWithBitfield();
+    ICPrintBitfield();
 }
