@@ -49,9 +49,34 @@ struct ICStructureWithSortedElements {
     bool boolValue6;
 };
 
+typedef struct ICStructureWithBitfield ICStructureWithBitfield;
+
+struct ICStructureWithBitfield {
+    double doubleValue1;
+    float floatValue1;
+    int intValue1;
+    short shortValue1;
+    short shortValue2;
+    short shortValue3;
+    char charValue1;
+    union {
+        struct {
+            bool boolValue1;
+            bool boolValue2;
+            bool boolValue3;
+            bool boolValue4;
+            bool boolValue5;
+            bool boolValue6;
+        };
+        long long longLongValue1;
+    };
+};
+
 void ICPrintOffsetOfStruct();
 void ICPrintSizeOfStruct();
 void ICPrintOffsetOfOptimizedStruct();
 void ICPrintSizeOfOptimizedStruct();
+void ICPrintOffsetOfStructWithBitfield();
+void ICPrintSizeOfStructWithBitfield();
 
 #endif /* ICBitfieldTest_h */
