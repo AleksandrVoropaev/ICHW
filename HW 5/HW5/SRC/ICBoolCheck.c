@@ -11,6 +11,7 @@
 
 #include "ICBoolCheck.h"
 
-void ICCheckTheBool(bool boolForCheck) {
-    (boolForCheck == 1) ? printf("The Bool is True\n") : printf("The Bool is False\n");
+void ICPrintBoolValue(bool value) {
+    //printf("The Bool is ");
+    (value) ? printf("True\n") : printf("False\n");
 }

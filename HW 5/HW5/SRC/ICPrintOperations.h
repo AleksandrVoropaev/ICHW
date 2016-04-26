@@ -9,25 +9,29 @@
 #ifndef ICPrintOperations_h
 #define ICPrintOperations_h
 
-void ICPrintResultOfBoolCompare();
+typedef enum {
+    ICDeputyIsPeculator,
+    ICDeputyIsHonest,
+    ICDeputyIsAnAngel,
+    ICDeputyIsDiedOfStarvation,
+} ICDeputyHonest;
+
+void ICPrintBoolComparisonResult();
+
 void ICPrintMamaPapaSelection(int firstValue, int secindValue);
 void ICPrintMamaPapaIfElseSelection(int firstValue, int secindValue);
 
-typedef enum {
-    peculator,
-    honest,
-    angel,
-    diedOfStarvation,
-} ICDeputyHonestyLevel;
+void ICPrintDeputyHonest(ICDeputyHonest deputyHonest);
+void ICPrintDeputyHonestWithSalaryAndWeals(float salary, float wealth);
 
-void ICPrintHonestyLevel(ICDeputyHonestyLevel honestyLevel);
-void ICCheckTheDeputy(float salary, float wealth);
-void ICPrintTheArray();
-void ICPrintNillTerminatedString();
-void ICPrintNillNotTerminatedString();
-void ICPrintNillTerminatedStringLength();
-void ICArrayLengthFromStringLength(const char string[]);
-void ICPrintArray(unsigned int count, int minValue, int maxValue);
+void ICPrintTwoArrays();
+
+void ICPrintStringWithLength(const char string[], unsigned long length);
+void ICPrintString(const char string[]);
+
+void ICCreateArrayLengthFromStringLength(const char string[]);
+void ICPrintArrayWithoutThirdsValues(unsigned int count, int minValue, int maxValue);
+
 void ICPrintMama();
 void ICPrintPapa();
 void ICPrintNewLine();

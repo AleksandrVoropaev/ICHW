@@ -9,8 +9,6 @@
 #ifndef ICBoolCheck_h
 #define ICBoolCheck_h
 
-#include <stdio.h>
-
-void ICCheckTheBool(bool boolForCheck);
+void ICPrintBoolValue(bool value);
 
 #endif /* ICBoolCheck_h */

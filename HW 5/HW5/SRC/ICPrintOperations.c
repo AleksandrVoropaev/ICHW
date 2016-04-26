@@ -11,17 +11,26 @@
 #include "string.h"
 #include "ICPrintOperations.h"
 #include "ICMathOperations.h"
+#include "ICBoolCheck.h"
 
-void ICPrintResultOfBoolCompare(){
-    printf("true && true = %s\n", ICAndOperation(true, true) ? "true" : "false");
-    printf("true && false = %s\n", ICAndOperation(true, false) ? "true" : "false");
-    printf("false && true = %s\n", ICAndOperation(false, true) ? "true" : "false");
-    printf("false && false = %s\n", ICAndOperation(false, false) ? "true" : "false");
+void ICPrintBoolComparisonResult(){
+    printf("true && true = ");
+    ICPrintBoolValue(ICAndOperation(true, true));
+    printf("true && false = ");
+    ICPrintBoolValue(ICAndOperation(true, false));
+    printf("false && true = ");
+    ICPrintBoolValue(ICAndOperation(false, true));
+    printf("false && false = ");
+    ICPrintBoolValue(ICAndOperation(false, false));
     
-    printf("true || true = %s\n", ICOrOperation(true, true) ? "true" : "false");
-    printf("true || false = %s\n", ICOrOperation(true, false) ? "true" : "false");
-    printf("false || true = %s\n", ICOrOperation(false, true) ? "true" : "false");
-    printf("false || false = %s\n", ICOrOperation(false, false) ? "true" : "false");
+    printf("true || true = ");
+    ICPrintBoolValue(ICOrOperation(true, true));
+    printf("true || false = ");
+    ICPrintBoolValue(ICOrOperation(true, false));
+    printf("false || true = ");
+    ICPrintBoolValue(ICOrOperation(false, true));
+    printf("false || false = ");
+    ICPrintBoolValue(ICOrOperation(false, false));
 }
 
 void ICPrintMamaPapaSelection(int firstValue, int secindValue) {
@@ -36,85 +45,78 @@ void ICPrintMamaPapaIfElseSelection(int firstValue, int secindValue) {
     }
 }
 
-void ICPrintHonestyLevel(ICDeputyHonestyLevel honestyLevel) {
-    switch (honestyLevel) {
+void ICPrintDeputyHonest(ICDeputyHonest value) {
+    printf("The deputy is ");
+    switch (value) {
         case 0:
-            puts("The deputy is peculator");
+            puts("peculator");
             break;
         case 1:
-            puts("The deputy is honest");
+            puts("honest");
             break;
         case 2:
-            puts("The deputy is an angel");
+            puts("an angel");
             break;
         case 3:
-            puts("The deputy is died of starvation");
+            puts("died of starvation");
             break;
         default:
             break;
     }
 }
 
-void ICCheckTheDeputy(float salary, float wealth) {
-    ICDeputyHonestyLevel honestyLevel = (wealth >= salary * 1000) ? 0 : (wealth >= salary * 100) ? 1 : (wealth >= salary * 10) ? 2 : 3;
-    ICPrintHonestyLevel(honestyLevel);
+void ICPrintDeputyHonestWithSalaryAndWeals(float salary, float wealth) {
+    ICDeputyHonest deputyHonest = (wealth >= salary * 1000) ? 0
+                                : (wealth >= salary * 100) ? 1
+                                : (wealth >= salary * 10) ? 2
+                                : 3;
+    ICPrintDeputyHonest(deputyHonest);
 }
 
-void ICPrintTheArray() {
-    int secondArray[] = {0, 1, 2, 3};
-    int thirdArray[4];
-    thirdArray[0] = 0;
-    thirdArray[1] = 1;
-    thirdArray[2] = 2;
-    thirdArray[3] = 3;
+void ICPrintTwoArrays() {
+    int firstArray[] = {3, 2, 1, 0};
     
-    puts("");
+    int secondArray[4];
+    secondArray[0] = 0;
+    secondArray[1] = 1;
+    secondArray[2] = 2;
+    secondArray[3] = 3;
     
     int iterator = 0;
     while (iterator < 4) {
-        printf("%d ", secondArray[iterator]);
+        printf("%d ", firstArray[iterator]);
         iterator++;
     }
+    
     puts("");
     
     iterator = 0;
     do {
-        printf("%d ", thirdArray[iterator]);
+        printf("%d ", secondArray[iterator]);
         iterator++;
     } while (iterator < 4);
+    
     puts("");
 }
 
-void ICPrintNillTerminatedString(const char string[]) {
-    for (int iterator = 0; iterator < strlen(string)+1; iterator++ ) {
+void ICPrintStringWithLength(const char string[], unsigned long length) {
+    for (unsigned long iterator = 0; iterator < length + 1; iterator++) {
         printf("%c ", string[iterator]);
     }
+    
     puts("");
 }
 
-void ICPrintNillNotTerminatedString(int length, const char string[]) {
-    for (int iterator = 0; iterator < length + 1; iterator++) {
-        printf("%c ", string[iterator]);
-    }
-    puts("");
+void ICPrintString(const char string[]) {
+    ICPrintStringWithLength(string, strlen(string));
 }
 
-void ICPrintNillTerminatedStringLength(const char string[]) {
-    printf("%ld\n", strlen(string));
-//    const char testString[10] = "Hi";
-//    printf("%s-\n", testString);
-//    const char testString[10] = "Hello, how are you?";
-//    printf("%s\n", testString);
-//    const char testString[] = "Hello\0, how are you?";
-//    printf("%s\n", testString);
+void ICCreateArrayLengthFromStringLength(const char string[]) {
+    unsigned long length = strlen(string);
+    unsigned long array[length];
 }
 
-void ICArrayLengthFromStringLength(const char string[]) {
-    unsigned int length = strlen(string);
-    int array[length];
-}
-
-void ICPrintArray(unsigned int count, int minValue, int maxValue) {
+void ICPrintArrayWithoutThirdsValues(unsigned int count, int minValue, int maxValue) {
     (count > 50) ? count = 50 : count;
     
     for (int value = minValue; value < maxValue; value++) {
@@ -127,8 +129,9 @@ void ICPrintArray(unsigned int count, int minValue, int maxValue) {
         }
         
         for (unsigned int iterator = 1; iterator < count + 1; iterator++) {
-            printf("%d ", value);
+            printf("%3d ", value);
         }
+        
         puts("");
     }
 }

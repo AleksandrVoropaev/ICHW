@@ -12,44 +12,29 @@
 #include "ICPrintOperations.h"
 
 bool ICAndOperation(bool firstValue, bool secondValue) {
-    bool result = firstValue && secondValue;
-    
-    return result;
+    return firstValue && secondValue;
 }
 
 bool ICOrOperation(bool firstValue, bool secondValue) {
-    bool result = firstValue || secondValue;
-    
-    return result;
+    return firstValue || secondValue;
 }
 
-void ICDecisionMamaPapa(int value) {
-    ICMamaPapaOption decision;
+ICPrintType ICMamaPapaPrintTypeWithVariable(int value) {
+    ICPrintType printType = ICPrintedNothig;
+    
     if (0 == value % 3) {
-        decision = ICMama;
-    } else if (0 == value % 5) {
-        decision = ICPapa;
+        printType += ICPrintedMama;
+        ICPrintMama();
     }
     
-    if (0 == value % 15) {
-        decision = ICMamaPapa;
+    if (0 == value % 5) {
+        printType += ICPrintedPapa;
+        ICPrintPapa();
     }
     
-    switch (decision) {
-        case ICMama:
-            ICPrintMama();
-            ICPrintNewLine();
-            break;
-        case ICPapa:
-            ICPrintPapa();
-            ICPrintNewLine();
-            break;
-        case ICMamaPapa:
-            ICPrintMama();
-            ICPrintPapa();
-            ICPrintNewLine();
-            break;
-        default:
-            break;
+    if (printType) {
+        ICPrintNewLine();
     }
+    
+    return printType;
 }
