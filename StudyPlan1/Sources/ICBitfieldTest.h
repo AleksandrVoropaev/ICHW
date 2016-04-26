@@ -52,6 +52,7 @@ struct ICStructureWithSortedElements {
 typedef struct ICStructureWithBitfield ICStructureWithBitfield;
 
 struct ICStructureWithBitfield {
+    long long longLongValue1;
     double doubleValue1;
     float floatValue1;
     int intValue1;
@@ -61,14 +62,14 @@ struct ICStructureWithBitfield {
     char charValue1;
     union {
         struct {
-            bool boolValue1;
-            bool boolValue2;
-            bool boolValue3;
-            bool boolValue4;
-            bool boolValue5;
-            bool boolValue6;
+            bool boolValue1 :1;
+            bool boolValue2 :1;
+            bool boolValue3 :1;
+            bool boolValue4 :1;
+            bool boolValue5 :1;
+            bool boolValue6 :1;
         };
-        long long longLongValue1;
+        char bitfield;
     };
 };
 

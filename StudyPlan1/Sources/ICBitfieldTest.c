@@ -47,7 +47,13 @@ void ICPrintSizeOfStruct() {
     printf("doubleValue1 is %lu\n", sizeof(ICStruct.doubleValue1));
     printf("boolValue6 is %lu\n", sizeof(ICStruct.boolValue6));
     printf("charValue1 is %lu\n", sizeof(ICStruct.charValue1));
-    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1)+sizeof(ICStruct.boolValue2)+sizeof(ICStruct.boolValue3)+sizeof(ICStruct.boolValue4)+sizeof(ICStruct.boolValue5)+sizeof(ICStruct.boolValue6)+sizeof(ICStruct.charValue1)+sizeof(ICStruct.doubleValue1)+sizeof(ICStruct.floatValue1)+sizeof(ICStruct.intValue1)+sizeof(ICStruct.longLongValue1)+sizeof(ICStruct.shortValue1)+sizeof(ICStruct.shortValue2)+sizeof(ICStruct.shortValue3)));
+    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1) + sizeof(ICStruct.boolValue2)
+                                                   + sizeof(ICStruct.boolValue3) + sizeof(ICStruct.boolValue4)
+                                                   + sizeof(ICStruct.boolValue5) + sizeof(ICStruct.boolValue6)
+                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+                                                   + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
+                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
 }
 
 void ICPrintOffsetOfOptimizedStruct() {
@@ -86,7 +92,13 @@ void ICPrintSizeOfOptimizedStruct() {
     printf("boolValue4 is %lu\n", sizeof(ICStruct.boolValue4));
     printf("boolValue5 is %lu\n", sizeof(ICStruct.boolValue5));
     printf("boolValue6 is %lu\n", sizeof(ICStruct.boolValue6));
-    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1)+sizeof(ICStruct.boolValue2)+sizeof(ICStruct.boolValue3)+sizeof(ICStruct.boolValue4)+sizeof(ICStruct.boolValue5)+sizeof(ICStruct.boolValue6)+sizeof(ICStruct.charValue1)+sizeof(ICStruct.doubleValue1)+sizeof(ICStruct.floatValue1)+sizeof(ICStruct.intValue1)+sizeof(ICStruct.longLongValue1)+sizeof(ICStruct.shortValue1)+sizeof(ICStruct.shortValue2)+sizeof(ICStruct.shortValue3)));
+    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1) + sizeof(ICStruct.boolValue2)
+                                                   + sizeof(ICStruct.boolValue3) + sizeof(ICStruct.boolValue4)
+                                                   + sizeof(ICStruct.boolValue5) + sizeof(ICStruct.boolValue6)
+                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+                                                   + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
+                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
 }
 
 void ICPrintOffsetOfStructWithBitfield() {
@@ -99,12 +111,13 @@ void ICPrintOffsetOfStructWithBitfield() {
     printf("shortValue2 is at %lu\n", offsetof(ICStructureWithBitfield, shortValue2));
     printf("shortValue3 is at %lu\n", offsetof(ICStructureWithBitfield, shortValue3));
     printf("charValue1 is at %lu\n", offsetof(ICStructureWithBitfield, charValue1));
-    printf("boolValue1 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue1));
-    printf("boolValue2 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue2));
-    printf("boolValue3 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue3));
-    printf("boolValue4 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue4));
-    printf("boolValue5 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue5));
-    printf("boolValue6 is at %lu\n\n", offsetof(ICStructureWithBitfield, boolValue6));
+//    printf("boolValue1 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue1));
+//    printf("boolValue2 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue2));
+//    printf("boolValue3 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue3));
+//    printf("boolValue4 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue4));
+//    printf("boolValue5 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue5));
+//    printf("boolValue6 is at %lu\n\n", offsetof(ICStructureWithBitfield, boolValue6));
+    printf("bitfield of six bool values is at %lu\n\n", offsetof(ICStructureWithBitfield, bitfield));
 }
 
 void ICPrintSizeOfStructWithBitfield() {
@@ -119,11 +132,16 @@ void ICPrintSizeOfStructWithBitfield() {
     printf("shortValue2 is %lu\n", sizeof(ICStruct.shortValue2));
     printf("shortValue3 is %lu\n", sizeof(ICStruct.shortValue3));
     printf("charValue1 is %lu\n", sizeof(ICStruct.charValue1));
-    printf("boolValue1 is %lu\n", sizeof(ICStruct.boolValue1));
-    printf("boolValue2 is %lu\n", sizeof(ICStruct.boolValue2));
-    printf("boolValue3 is %lu\n", sizeof(ICStruct.boolValue3));
-    printf("boolValue4 is %lu\n", sizeof(ICStruct.boolValue4));
-    printf("boolValue5 is %lu\n", sizeof(ICStruct.boolValue5));
-    printf("boolValue6 is %lu\n", sizeof(ICStruct.boolValue6));
-    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1)+sizeof(ICStruct.boolValue2)+sizeof(ICStruct.boolValue3)+sizeof(ICStruct.boolValue4)+sizeof(ICStruct.boolValue5)+sizeof(ICStruct.boolValue6)+sizeof(ICStruct.charValue1)+sizeof(ICStruct.doubleValue1)+sizeof(ICStruct.floatValue1)+sizeof(ICStruct.intValue1)+sizeof(ICStruct.longLongValue1)+sizeof(ICStruct.shortValue1)+sizeof(ICStruct.shortValue2)+sizeof(ICStruct.shortValue3)));
+//    printf("boolValue1 is %lu\n", sizeof(ICStruct.boolValue1));
+//    printf("boolValue2 is %lu\n", sizeof(ICStruct.boolValue2));
+//    printf("boolValue3 is %lu\n", sizeof(ICStruct.boolValue3));
+//    printf("boolValue4 is %lu\n", sizeof(ICStruct.boolValue4));
+//    printf("boolValue5 is %lu\n", sizeof(ICStruct.boolValue5));
+//    printf("boolValue6 is %lu\n", sizeof(ICStruct.boolValue6));
+    printf("bitfield of six bool values is %lu\n", sizeof(ICStruct.bitfield));
+    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.bitfield)
+                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+                                                   + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
+                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
 }

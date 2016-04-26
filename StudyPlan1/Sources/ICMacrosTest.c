@@ -8,8 +8,9 @@
 
 #include "ICMacrosTest.h"
 
-ICGenerateFunctionWithTypeAndSpecifier(int, i)
+ICGenerateFunctionWithTypeAndSpecifier(float, f)
 
 void ICRunMacros() {
-    ICRunGeneratedFunction(int, 12);
+    float value = 11.1; // test value
+    ICRunGeneratedFunction(float, value);
 }

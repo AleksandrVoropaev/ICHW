@@ -16,9 +16,8 @@
         printf(#type " value is %" #specifier "\n\n", variable); \
     }
 
-#define ICRunGeneratedFunction(type, argument) \
-    type variable = argument; \
-    ICOutput_##type(variable)
+#define ICRunGeneratedFunction(type, value) \
+    ICOutput_##type(value)
 
 void ICRunMacros();
 
