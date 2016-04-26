@@ -30,7 +30,28 @@ struct ICStructureWithRandomPlacedElements {
     char charValue1;
 };
 
+typedef struct ICStructureWithSortedElements ICStructureWithSortedElements;
+
+struct ICStructureWithSortedElements {
+    long long longLongValue1;
+    double doubleValue1;
+    float floatValue1;
+    int intValue1;
+    short shortValue1;
+    short shortValue2;
+    short shortValue3;
+    char charValue1;
+    bool boolValue1;
+    bool boolValue2;
+    bool boolValue3;
+    bool boolValue4;
+    bool boolValue5;
+    bool boolValue6;
+};
+
 void ICPrintOffsetOfStruct();
 void ICPrintSizeOfStruct();
+void ICPrintOffsetOfOptimizedStruct();
+void ICPrintSizeOfOptimizedStruct();
 
 #endif /* ICBitfieldTest_h */

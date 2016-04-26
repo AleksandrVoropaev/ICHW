@@ -17,4 +17,6 @@ void ICRunAplication() {
     ICRunMacros();
     ICPrintOffsetOfStruct();
     ICPrintSizeOfStruct();
+    ICPrintOffsetOfOptimizedStruct();
+    ICPrintSizeOfOptimizedStruct();
 }
