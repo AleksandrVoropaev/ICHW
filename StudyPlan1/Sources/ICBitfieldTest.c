@@ -11,22 +11,39 @@
 
 #include "ICBitfieldTest.h"
 
+#define ICGeneratePrintOffsetOfStructElement(typeOfStruct, typeOfVariable, count) \
+    printf(#typeOfVariable "Value" #count " is at %lu\n", offsetof(typeOfStruct, typeOfVariable##Value##count))
+
 void ICPrintOffsetOfStruct() {
     printf("Offsetof: \n");
-    printf("boolValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue1));
-    printf("floatValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, floatValue1));
-    printf("boolValue2 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue2));
-    printf("intValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, intValue1));
-    printf("boolValue3 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue3));
-    printf("longLongValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, longLongValue1));
-    printf("boolValue4 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue4));
-    printf("shortValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue1));
-    printf("shortValue2 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue2));
-    printf("shortValue3 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue3));
-    printf("boolValue5 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue5));
-    printf("doubleValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, doubleValue1));
-    printf("boolValue6 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue6));
-    printf("charValue1 is at %lu\n\n", offsetof(ICStructureWithRandomPlacedElements, charValue1));
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, float, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 2);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, int, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 3);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, longLong, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 4);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, short, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, short, 2);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, short, 3);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 5);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, double, 1);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, bool, 6);
+    ICGeneratePrintOffsetOfStructElement(ICStructureWithRandomPlacedElements, char, 1);
+//    printf("boolValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue1));
+//    printf("floatValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, floatValue1));
+//    printf("boolValue2 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue2));
+//    printf("intValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, intValue1));
+//    printf("boolValue3 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue3));
+//    printf("longLongValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, longLongValue1));
+//    printf("boolValue4 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue4));
+//    printf("shortValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue1));
+//    printf("shortValue2 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue2));
+//    printf("shortValue3 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, shortValue3));
+//    printf("boolValue5 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue5));
+//    printf("doubleValue1 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, doubleValue1));
+//    printf("boolValue6 is at %lu\n", offsetof(ICStructureWithRandomPlacedElements, boolValue6));
+//    printf("charValue1 is at %lu\n\n", offsetof(ICStructureWithRandomPlacedElements, charValue1));
 }
 
 void ICPrintSizeOfStruct() {
@@ -111,12 +128,6 @@ void ICPrintOffsetOfStructWithBitfield() {
     printf("shortValue2 is at %lu\n", offsetof(ICStructureWithBitfield, shortValue2));
     printf("shortValue3 is at %lu\n", offsetof(ICStructureWithBitfield, shortValue3));
     printf("charValue1 is at %lu\n", offsetof(ICStructureWithBitfield, charValue1));
-//    printf("boolValue1 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue1));
-//    printf("boolValue2 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue2));
-//    printf("boolValue3 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue3));
-//    printf("boolValue4 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue4));
-//    printf("boolValue5 is at %lu\n", offsetof(ICStructureWithBitfield, boolValue5));
-//    printf("boolValue6 is at %lu\n\n", offsetof(ICStructureWithBitfield, boolValue6));
     printf("bitfield of six bool values is at %lu\n\n", offsetof(ICStructureWithBitfield, bitfield));
 }
 
@@ -132,12 +143,6 @@ void ICPrintSizeOfStructWithBitfield() {
     printf("shortValue2 is %lu\n", sizeof(ICStruct.shortValue2));
     printf("shortValue3 is %lu\n", sizeof(ICStruct.shortValue3));
     printf("charValue1 is %lu\n", sizeof(ICStruct.charValue1));
-//    printf("boolValue1 is %lu\n", sizeof(ICStruct.boolValue1));
-//    printf("boolValue2 is %lu\n", sizeof(ICStruct.boolValue2));
-//    printf("boolValue3 is %lu\n", sizeof(ICStruct.boolValue3));
-//    printf("boolValue4 is %lu\n", sizeof(ICStruct.boolValue4));
-//    printf("boolValue5 is %lu\n", sizeof(ICStruct.boolValue5));
-//    printf("boolValue6 is %lu\n", sizeof(ICStruct.boolValue6));
     printf("bitfield of six bool values is %lu\n", sizeof(ICStruct.bitfield));
     printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.bitfield)
                                                    + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
