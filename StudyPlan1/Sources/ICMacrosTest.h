@@ -13,7 +13,7 @@
 
 #define ICGenerateFunctionWithTypeAndSpecifier(type, specifier) \
     void ICOutput_##type(type variable) { \
-        printf(#type " value is %" #specifier "\n", variable); \
+        printf(#type " value is %" #specifier "\n\n", variable); \
     }
 
 #define ICRunGeneratedFunction(type, argument) \

@@ -10,8 +10,11 @@
 #include "ICMathFunctions.h"
 #include "ICPrintFunctions.h"
 #include "ICMacrosTest.h"
+#include "ICBitfieldTest.h"
 
-void ICRunAll() {
+void ICRunAplication() {
     ICPrintSize();
     ICRunMacros();
+    ICPrintOffsetOfStruct();
+    ICPrintSizeOfStruct();
 }

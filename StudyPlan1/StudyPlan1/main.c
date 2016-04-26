@@ -10,7 +10,7 @@
 #include "ICRunApplication.h"
 
 int main(int argc, const char * argv[]) {
-    ICRunAll();
+    ICRunAplication();
     
     return 0;
 }

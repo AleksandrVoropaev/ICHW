@@ -21,5 +21,5 @@ void ICPrintSize() {
     printf("Double is %2lu bytes long \n", sizeof(doubleVariable));
     printf("Long is %4lu bytes long \n", sizeof(longVariable));
     printf("Float is %3lu bytes long \n", sizeof(floatVariable));
-    printf("Char is %4lu bytes long \n", sizeof(charVariable));
+    printf("Char is %4lu bytes long \n\n", sizeof(charVariable));
 }

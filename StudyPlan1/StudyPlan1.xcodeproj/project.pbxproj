@@ -12,6 +12,7 @@
 		1FC6BE7F1CBFC359002D2814 /* ICRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE7D1CBFC359002D2814 /* ICRunApplication.c */; };
 		1FC6BE821CBFC3F8002D2814 /* ICPrintFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE801CBFC3F8002D2814 /* ICPrintFunctions.c */; };
 		1FC6BE851CBFC414002D2814 /* ICMathFunctions.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FC6BE831CBFC414002D2814 /* ICMathFunctions.c */; };
+		1FF3C7891CCF7CEA00B21EA3 /* ICBitfieldTest.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7871CCF7CEA00B21EA3 /* ICBitfieldTest.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,8 @@
 		1FC6BE811CBFC3F8002D2814 /* ICPrintFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICPrintFunctions.h; sourceTree = "<group>"; };
 		1FC6BE831CBFC414002D2814 /* ICMathFunctions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICMathFunctions.c; sourceTree = "<group>"; };
 		1FC6BE841CBFC414002D2814 /* ICMathFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICMathFunctions.h; sourceTree = "<group>"; };
+		1FF3C7871CCF7CEA00B21EA3 /* ICBitfieldTest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ICBitfieldTest.c; sourceTree = "<group>"; };
+		1FF3C7881CCF7CEA00B21EA3 /* ICBitfieldTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICBitfieldTest.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				1FC6BE841CBFC414002D2814 /* ICMathFunctions.h */,
 				1F38262A1CCE6BC90027CD84 /* ICMacrosTest.c */,
 				1F38262B1CCE6BC90027CD84 /* ICMacrosTest.h */,
+				1FF3C7871CCF7CEA00B21EA3 /* ICBitfieldTest.c */,
+				1FF3C7881CCF7CEA00B21EA3 /* ICBitfieldTest.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				1F38262C1CCE6BC90027CD84 /* ICMacrosTest.c in Sources */,
 				1FC6BE851CBFC414002D2814 /* ICMathFunctions.c in Sources */,
 				1FC6BE7C1CBFC33A002D2814 /* main.c in Sources */,
+				1FF3C7891CCF7CEA00B21EA3 /* ICBitfieldTest.c in Sources */,
 				1FC6BE821CBFC3F8002D2814 /* ICPrintFunctions.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
