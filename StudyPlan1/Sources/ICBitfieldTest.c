@@ -72,6 +72,8 @@
     printf(#variableName " is %lu bytes long\n", sizeof(ICStruct.variableName))
 
 ICGeneratePrintOffsetOfStructElements(ICStructureWithRandomPlacedElements);
+
+ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, typeOfVariable, count)
 void ICPrintSizeOfStruct() {
     ICStructureWithRandomPlacedElements ICStruct;
     printf("Sizeof: \n");
@@ -150,6 +152,33 @@ void ICPrintSizeOfStructWithBitfield() {
 
 void ICPrintBitfield() {
     ICStructureWithBitfield ICStruct;
-    ICStruct.bitfield = 'A';
-    printf("%d %d %d %d %d %d\n", ICStruct.boolValue1, ICStruct.boolValue2, ICStruct.boolValue3, ICStruct.boolValue4, ICStruct.boolValue5, ICStruct.boolValue6);
+    ICStruct.bitfield = 5;
+    printf("%d %d %d %d %d %d\n", ICStruct.boolValue6, ICStruct.boolValue5, ICStruct.boolValue4, ICStruct.boolValue3, ICStruct.boolValue2, ICStruct.boolValue1);
+}
+
+void ICOneByteOutput(uint8_t *byteAdress) {
+    uint8_t byteAdressValue = *byteAdress;
+    printf(" - ");
+    for (uint8_t bitShiftCount = 8; bitShiftCount > 0; bitShiftCount--) {
+        uint8_t bitValue = byteAdressValue >> (bitShiftCount - 1);
+        printf("%d", bitValue & 1);
+        if (bitShiftCount != 1) {
+            printf(" ");
+        }
+    }
+    
+    printf(" - ");
+}
+
+void ICBitfieldOutput(void *firstByteAdress, size_t bitfieldSize) {
+    uint16_t bigLittleEndianTest = 1;
+    printf("%s\n", *((uint8_t *) &bigLittleEndianTest) == 0 ? "big-endian" : "little-endian");
+    
+    uint8_t *byte = (uint8_t *)firstByteAdress;
+    printf(" {");
+    for (uint8_t count = bitfieldSize; count > 0; count--) {
+        ICOneByteOutput(&byte[count - 1]);
+    }
+    
+    printf("}\n\n");
 }

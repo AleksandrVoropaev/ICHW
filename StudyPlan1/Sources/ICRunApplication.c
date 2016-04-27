@@ -22,4 +22,9 @@ void ICRunAplication() {
     ICPrintOffsetOfStructWithBitfield();
     ICPrintSizeOfStructWithBitfield();
     ICPrintBitfield();
+    uint8_t byte = 5;
+    ICOneByteOutput(&byte);
+    int fourbytes = 5;
+    printf("\n");
+    ICBitfieldOutput(&fourbytes, sizeof(fourbytes));
 }

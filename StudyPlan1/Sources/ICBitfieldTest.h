@@ -80,5 +80,7 @@ void ICPrintSizeOfOptimizedStruct();
 void ICPrintOffsetOfStructWithBitfield();
 void ICPrintSizeOfStructWithBitfield();
 void ICPrintBitfield();
+void ICOneByteOutput(uint8_t *byteAdress);
+void ICBitfieldOutput(void *firstByteAdress, size_t bitfieldSize);
 
 #endif /* ICBitfieldTest_h */
