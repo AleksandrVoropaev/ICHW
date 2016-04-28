@@ -13,18 +13,19 @@
 #include "ICBitfieldTest.h"
 
 void ICRunAplication() {
-    ICPrintSize();
-    ICRunMacros();
-    ICPrintOffsetOfStruct();
-    ICPrintSizeOfStruct();
-    ICPrintOffsetOfSortedStruct();
-    ICPrintSizeOfOptimizedStruct();
-    ICPrintOffsetOfStructWithBitfield();
-    ICPrintSizeOfStructWithBitfield();
+    ICPrintRandomStructOffset();
+    ICPrintRandomStructSizeof();
+    ICPrintSortedStructOffset();
+    ICPrintSortedStructSizeof();
+    ICPrintStructWithBitfieldOffset();
+    ICPrintStructWithBitfieldSizeof();
+    
     ICPrintBitfield();
     uint8_t byte = 5;
-    ICOneByteOutput(&byte);
-    int fourbytes = 5;
-    printf("\n");
-    ICBitfieldOutput(&fourbytes, sizeof(fourbytes));
+    ICByteOutput(byte);
+    puts("");
+    uint16_t twobytes = 5;
+    ICVariableBitOutput(&twobytes, sizeof(twobytes));
+    
+    printf("%s\n", ICBigLittleEndianTest());
 }

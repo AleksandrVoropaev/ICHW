@@ -8,161 +8,180 @@
 
 #include <stdio.h>
 #include <stddef.h>
+#include <string.h>
 
 #include "ICBitfieldTest.h"
 
-#define ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, typeOfVariable, count) \
-    printf(#typeOfVariable "Value" #count " is at %lu\n", offsetof(typeOfStruct, typeOfVariable##Value##count))
+#define ICPrintStructValueOffset(structType, variable, index) \
+    printf(#variable "Value" #index " is at %lu\n", offsetof(structType, variable##Value##index))
 
-#define ICGeneratePrintOffsetOfStructElements(typeOfStruct) \
-    void ICPrintOffsetOfStruct() {\
-        printf("Offsetof: \n");\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, float, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 2);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, int, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 3);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, longLong, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 4);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 2);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 3);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 5);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, double, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 6);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, char, 1);\
-        printf("\n");\
-    }
+#define ICPrintStructValueSizeof(variable) \
+    printf(#variable " is %lu bytes long\n", sizeof(ICStruct.variable))
 
-#define ICGeneratePrintOffsetOfSortedStructElements(typeOfStruct) \
-    void ICPrintOffsetOfSortedStruct() {\
-        printf("Offsetof: \n");\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, longLong, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, double, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, float, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, int, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, char, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 2);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 3);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 4);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 5);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, bool, 6);\
-        printf("\n");\
-    }
+void ICPrintRandomStructOffset() {
+#define ICPrintRandomStructValueOffset(variable, index) \
+    ICPrintStructValueOffset(ICStructureWithRandomPlacedElements, variable, index)
 
-#define ICGeneratePrintOffsetStructWithBitfieldElements(typeOfStruct) \
-    void ICPrintOffsetOfStructWithBitfield() {\
-        printf("Offsetof: \n");\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, longLong, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, double, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, float, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, int, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, short, 1);\
-        ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, char, 1);\
-        printf("bitfield of six bool values is at %lu\n\n", offsetof(ICStructureWithBitfield, bitfield));\
-    }
+    printf("Ofsetof ICStructureWithRandomPlacedElements\n");
+    ICPrintRandomStructValueOffset(b0ol, 1);
+    ICPrintRandomStructValueOffset(float, 1);
+    ICPrintRandomStructValueOffset(b0ol, 2);
+    ICPrintRandomStructValueOffset(int, 1);
+    ICPrintRandomStructValueOffset(b0ol, 3);
+    ICPrintRandomStructValueOffset(longLong, 1);
+    ICPrintRandomStructValueOffset(b0ol, 4);
+    ICPrintRandomStructValueOffset(short, 1);
+    ICPrintRandomStructValueOffset(short, 2);
+    ICPrintRandomStructValueOffset(short, 3);
+    ICPrintRandomStructValueOffset(b0ol, 5);
+    ICPrintRandomStructValueOffset(double, 1);
+    ICPrintRandomStructValueOffset(b0ol, 6);
+    ICPrintRandomStructValueOffset(char, 1);
+    
+#undef ICPrintRandomStructValueOffset
+}
 
-#define ICGeneratePrintLineSizeOfStructElement(variableName) \
-    printf(#variableName " is %lu bytes long\n", sizeof(ICStruct.variableName))
-
-ICGeneratePrintOffsetOfStructElements(ICStructureWithRandomPlacedElements);
-
-ICGeneratePrintLineOffsetOfStructElement(typeOfStruct, typeOfVariable, count)
-void ICPrintSizeOfStruct() {
+void ICPrintRandomStructSizeof() {
+#define ICPrintRandomStructValueSizeof(variable) \
+    ICPrintStructValueSizeof(variable)
+    
     ICStructureWithRandomPlacedElements ICStruct;
-    printf("Sizeof: \n");
-    printf("The Struct with random placed elements is %lu\n", sizeof(ICStruct));
-    ICGeneratePrintLineSizeOfStructElement(boolValue1);
-    ICGeneratePrintLineSizeOfStructElement(floatValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue2);
-    ICGeneratePrintLineSizeOfStructElement(intValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue3);
-    ICGeneratePrintLineSizeOfStructElement(longLongValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue4);
-    ICGeneratePrintLineSizeOfStructElement(shortValue1);
-    ICGeneratePrintLineSizeOfStructElement(shortValue2);
-    ICGeneratePrintLineSizeOfStructElement(shortValue3);
-    ICGeneratePrintLineSizeOfStructElement(boolValue5);
-    ICGeneratePrintLineSizeOfStructElement(doubleValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue6);
-    ICGeneratePrintLineSizeOfStructElement(charValue1);
-    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1) + sizeof(ICStruct.boolValue2)
-                                                   + sizeof(ICStruct.boolValue3) + sizeof(ICStruct.boolValue4)
-                                                   + sizeof(ICStruct.boolValue5) + sizeof(ICStruct.boolValue6)
-                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+    printf("Struct with random placed elements is %lu bytes long\n", sizeof(ICStruct));
+    ICPrintRandomStructValueSizeof(b0olValue1);
+    ICPrintRandomStructValueSizeof(floatValue1);
+    ICPrintRandomStructValueSizeof(b0olValue2);
+    ICPrintRandomStructValueSizeof(intValue1);
+    ICPrintRandomStructValueSizeof(b0olValue3);
+    ICPrintRandomStructValueSizeof(longLongValue1);
+    ICPrintRandomStructValueSizeof(b0olValue4);
+    ICPrintRandomStructValueSizeof(shortValue1);
+    ICPrintRandomStructValueSizeof(shortValue2);
+    ICPrintRandomStructValueSizeof(shortValue3);
+    ICPrintRandomStructValueSizeof(b0olValue5);
+    ICPrintRandomStructValueSizeof(doubleValue1);
+    ICPrintRandomStructValueSizeof(b0olValue6);
+    ICPrintRandomStructValueSizeof(charValue1);
+    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.b0olValue1) + sizeof(ICStruct.b0olValue2)
+                                                   + sizeof(ICStruct.b0olValue3) + sizeof(ICStruct.b0olValue4)
+                                                   + sizeof(ICStruct.b0olValue5) + sizeof(ICStruct.b0olValue6)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.doubleValue1)
                                                    + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
-                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
-                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
+                                                   + sizeof(ICStruct.shortValue1) + sizeof(ICStruct.shortValue2)
+                                                   + sizeof(ICStruct.shortValue3) + sizeof(ICStruct.charValue1)));
+
+#undef ICPrintRandomStructValueSizeof
 }
 
-ICGeneratePrintOffsetOfSortedStructElements(ICStructureWithSortedElements);
-void ICPrintSizeOfOptimizedStruct() {
+void ICPrintSortedStructOffset() {
+#define ICPrintSortedStructValueOffset(variable, index) \
+    ICPrintStructValueOffset(ICStructureWithSortedElements, variable, index)
+    
+    printf("Ofsetof ICStructureWithSortedElements\n");
+    ICPrintSortedStructValueOffset(longLong, 1);
+    ICPrintSortedStructValueOffset(double, 1);
+    ICPrintSortedStructValueOffset(float, 1);
+    ICPrintSortedStructValueOffset(int, 1);
+    ICPrintSortedStructValueOffset(short, 1);
+    ICPrintSortedStructValueOffset(short, 2);
+    ICPrintSortedStructValueOffset(short, 3);
+    ICPrintSortedStructValueOffset(char, 1);
+    ICPrintSortedStructValueOffset(b0ol, 1);
+    ICPrintSortedStructValueOffset(b0ol, 2);
+    ICPrintSortedStructValueOffset(b0ol, 3);
+    ICPrintSortedStructValueOffset(b0ol, 4);
+    ICPrintSortedStructValueOffset(b0ol, 5);
+    ICPrintSortedStructValueOffset(b0ol, 6);
+    
+#undef ICPrintSortedStructValueOffset
+}
+
+void ICPrintSortedStructSizeof() {
+#define ICPrintSortedStructValueSizeof(variable) \
+ICPrintStructValueSizeof(variable)
+    
     ICStructureWithSortedElements ICStruct;
-    printf("Sizeof: \n");
-    printf("The Struct with sorted elements is %lu\n", sizeof(ICStruct));
-    ICGeneratePrintLineSizeOfStructElement(longLongValue1);
-    ICGeneratePrintLineSizeOfStructElement(doubleValue1);
-    ICGeneratePrintLineSizeOfStructElement(floatValue1);
-    ICGeneratePrintLineSizeOfStructElement(intValue1);
-    ICGeneratePrintLineSizeOfStructElement(shortValue1);
-    ICGeneratePrintLineSizeOfStructElement(shortValue2);
-    ICGeneratePrintLineSizeOfStructElement(shortValue3);
-    ICGeneratePrintLineSizeOfStructElement(charValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue1);
-    ICGeneratePrintLineSizeOfStructElement(boolValue2);
-    ICGeneratePrintLineSizeOfStructElement(boolValue3);
-    ICGeneratePrintLineSizeOfStructElement(boolValue4);
-    ICGeneratePrintLineSizeOfStructElement(boolValue5);
-    ICGeneratePrintLineSizeOfStructElement(boolValue6);
-    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.boolValue1) + sizeof(ICStruct.boolValue2)
-                                                   + sizeof(ICStruct.boolValue3) + sizeof(ICStruct.boolValue4)
-                                                   + sizeof(ICStruct.boolValue5) + sizeof(ICStruct.boolValue6)
-                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+    printf("Struct with random placed elements is %lu bytes long\n", sizeof(ICStruct));
+    ICPrintSortedStructValueSizeof(longLongValue1);
+    ICPrintSortedStructValueSizeof(doubleValue1);
+    ICPrintSortedStructValueSizeof(floatValue1);
+    ICPrintSortedStructValueSizeof(intValue1);
+    ICPrintSortedStructValueSizeof(shortValue1);
+    ICPrintSortedStructValueSizeof(shortValue2);
+    ICPrintSortedStructValueSizeof(shortValue3);
+    ICPrintSortedStructValueSizeof(charValue1);
+    ICPrintSortedStructValueSizeof(b0olValue1);
+    ICPrintSortedStructValueSizeof(b0olValue2);
+    ICPrintSortedStructValueSizeof(b0olValue3);
+    ICPrintSortedStructValueSizeof(b0olValue4);
+    ICPrintSortedStructValueSizeof(b0olValue5);
+    ICPrintSortedStructValueSizeof(b0olValue6);
+    printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.b0olValue1) + sizeof(ICStruct.b0olValue2)
+                                                   + sizeof(ICStruct.b0olValue3) + sizeof(ICStruct.b0olValue4)
+                                                   + sizeof(ICStruct.b0olValue5) + sizeof(ICStruct.b0olValue6)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.doubleValue1)
                                                    + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
-                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
-                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
+                                                   + sizeof(ICStruct.shortValue1) + sizeof(ICStruct.shortValue2)
+                                                   + sizeof(ICStruct.shortValue3) + sizeof(ICStruct.charValue1)));
+    
+#undef ICPrintSortedStructValueSizeof
 }
 
-ICGeneratePrintOffsetStructWithBitfieldElements(ICStructureWithBitfield);
-void ICPrintSizeOfStructWithBitfield() {
+void ICPrintStructWithBitfieldOffset() {
+#define ICPrintStructWithBitfieldValueOffset(variable, index) \
+    ICPrintStructValueOffset(ICStructureWithBitfield, variable, index)
+    
+    printf("Ofsetof ICStructureWithBitfield\n");
+    ICPrintStructWithBitfieldValueOffset(longLong, 1);
+    ICPrintStructWithBitfieldValueOffset(double, 1);
+    ICPrintStructWithBitfieldValueOffset(float, 1);
+    ICPrintStructWithBitfieldValueOffset(int, 1);
+    ICPrintStructWithBitfieldValueOffset(short, 1);
+    ICPrintStructWithBitfieldValueOffset(short, 2);
+    ICPrintStructWithBitfieldValueOffset(short, 3);
+    ICPrintStructWithBitfieldValueOffset(char, 1);
+    printf("Bitfield is at %lu\n", offsetof(ICStructureWithBitfield, bitfield));
+   
+#undef ICPrintStructWithBitfieldValueOffset
+}
+
+void ICPrintStructWithBitfieldSizeof() {
+#define ICPrintStructWithBitfieldValueSizeof(variable) \
+ICPrintStructValueSizeof(variable)
+    
     ICStructureWithBitfield ICStruct;
-    printf("Sizeof: \n");
-    printf("The Struct with sorted elements and bitfield is %lu\n", sizeof(ICStruct));
-    ICGeneratePrintLineSizeOfStructElement(longLongValue1);
-    ICGeneratePrintLineSizeOfStructElement(doubleValue1);
-    ICGeneratePrintLineSizeOfStructElement(floatValue1);
-    ICGeneratePrintLineSizeOfStructElement(intValue1);
-    ICGeneratePrintLineSizeOfStructElement(shortValue1);
-    ICGeneratePrintLineSizeOfStructElement(shortValue2);
-    ICGeneratePrintLineSizeOfStructElement(shortValue3);
-    ICGeneratePrintLineSizeOfStructElement(charValue1);
-    printf("bitfield of six bool values is %lu\n", sizeof(ICStruct.bitfield));
+    printf("Struct with random placed elements is %lu bytes long\n", sizeof(ICStruct));
+    ICPrintStructWithBitfieldValueSizeof(longLongValue1);
+    ICPrintStructWithBitfieldValueSizeof(doubleValue1);
+    ICPrintStructWithBitfieldValueSizeof(floatValue1);
+    ICPrintStructWithBitfieldValueSizeof(intValue1);
+    ICPrintStructWithBitfieldValueSizeof(shortValue1);
+    ICPrintStructWithBitfieldValueSizeof(shortValue2);
+    ICPrintStructWithBitfieldValueSizeof(shortValue3);
+    ICPrintStructWithBitfieldValueSizeof(charValue1);
+    ICPrintStructWithBitfieldValueSizeof(bitfield);
     printf("Sum of sizes of elements is %lu\n\n", (sizeof(ICStruct.bitfield)
-                                                   + sizeof(ICStruct.charValue1) + sizeof(ICStruct.doubleValue1)
+                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.doubleValue1)
                                                    + sizeof(ICStruct.floatValue1) + sizeof(ICStruct.intValue1)
-                                                   + sizeof(ICStruct.longLongValue1) + sizeof(ICStruct.shortValue1)
-                                                   + sizeof(ICStruct.shortValue2) + sizeof(ICStruct.shortValue3)));
+                                                   + sizeof(ICStruct.shortValue1) + sizeof(ICStruct.shortValue2)
+                                                   + sizeof(ICStruct.shortValue3) + sizeof(ICStruct.charValue1)));
+    
+#undef ICPrintStructWithBitfieldValueSizeof
 }
 
 void ICPrintBitfield() {
     ICStructureWithBitfield ICStruct;
     ICStruct.bitfield = 5;
-    printf("%d %d %d %d %d %d\n", ICStruct.boolValue6, ICStruct.boolValue5, ICStruct.boolValue4, ICStruct.boolValue3, ICStruct.boolValue2, ICStruct.boolValue1);
+    printf("%d %d %d %d %d %d\n", ICStruct.b0olValue6, ICStruct.b0olValue5, ICStruct.b0olValue4, ICStruct.b0olValue3, ICStruct.b0olValue2, ICStruct.b0olValue1);
 }
 
-void ICOneByteOutput(uint8_t *byteAdress) {
-    uint8_t byteAdressValue = *byteAdress;
+static const uint8_t kICByteLength = 8;
+
+void ICByteOutput(uint8_t byte) {
     printf(" - ");
-    for (uint8_t bitShiftCount = 8; bitShiftCount > 0; bitShiftCount--) {
-        uint8_t bitValue = byteAdressValue >> (bitShiftCount - 1);
+    for (uint8_t bitShiftCount = 0; bitShiftCount < kICByteLength; bitShiftCount++) {
+        uint8_t bitValue = byte >> (kICByteLength - bitShiftCount - 1);
         printf("%d", bitValue & 1);
-        if (bitShiftCount != 1) {
+        if (bitShiftCount != 7) {
             printf(" ");
         }
     }
@@ -170,15 +189,25 @@ void ICOneByteOutput(uint8_t *byteAdress) {
     printf(" - ");
 }
 
-void ICBitfieldOutput(void *firstByteAdress, size_t bitfieldSize) {
-    uint16_t bigLittleEndianTest = 1;
-    printf("%s\n", *((uint8_t *) &bigLittleEndianTest) == 0 ? "big-endian" : "little-endian");
-    
+void ICVariableBitOutput(void *firstByteAdress, size_t variableTypeSize) {
     uint8_t *byte = (uint8_t *)firstByteAdress;
     printf(" {");
-    for (uint8_t count = bitfieldSize; count > 0; count--) {
-        ICOneByteOutput(&byte[count - 1]);
+    if (!strcmp(ICBigLittleEndianTest(), "little-endian")) {
+        for (uint8_t count = 0; count < variableTypeSize; count++) {
+            ICByteOutput(byte[variableTypeSize - count - 1]);
+        }
+    } else {
+        for (uint8_t count = 0; count < variableTypeSize; count++) {
+            ICByteOutput(byte[count]);
+        }
     }
-    
     printf("}\n\n");
+}
+
+char* ICBigLittleEndianTest() {
+    char *result;
+    uint16_t bigLittleEndianTest = 1;
+    result = ((uint8_t *)&bigLittleEndianTest)[0] == 0 ? "big-endian" : "little-endian";
+    
+    return result;
 }

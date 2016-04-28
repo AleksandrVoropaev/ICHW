@@ -12,26 +12,24 @@
 #include <stdbool.h>
 
 typedef struct ICStructureWithRandomPlacedElements ICStructureWithRandomPlacedElements;
-
 struct ICStructureWithRandomPlacedElements {
-    bool boolValue1;
+    bool b0olValue1;
     float floatValue1;
-    bool boolValue2;
+    bool b0olValue2;
     int intValue1;
-    bool boolValue3;
+    bool b0olValue3;
     long long longLongValue1;
-    bool boolValue4;
+    bool b0olValue4;
     short shortValue1;
     short shortValue2;
     short shortValue3;
-    bool boolValue5;
+    bool b0olValue5;
     double doubleValue1;
-    bool boolValue6;
+    bool b0olValue6;
     char charValue1;
 };
 
 typedef struct ICStructureWithSortedElements ICStructureWithSortedElements;
-
 struct ICStructureWithSortedElements {
     long long longLongValue1;
     double doubleValue1;
@@ -41,16 +39,15 @@ struct ICStructureWithSortedElements {
     short shortValue2;
     short shortValue3;
     char charValue1;
-    bool boolValue1;
-    bool boolValue2;
-    bool boolValue3;
-    bool boolValue4;
-    bool boolValue5;
-    bool boolValue6;
+    bool b0olValue1;
+    bool b0olValue2;
+    bool b0olValue3;
+    bool b0olValue4;
+    bool b0olValue5;
+    bool b0olValue6;
 };
 
 typedef struct ICStructureWithBitfield ICStructureWithBitfield;
-
 struct ICStructureWithBitfield {
     long long longLongValue1;
     double doubleValue1;
@@ -62,25 +59,28 @@ struct ICStructureWithBitfield {
     char charValue1;
     union {
         struct {
-            bool boolValue1 :1;
-            bool boolValue2 :1;
-            bool boolValue3 :1;
-            bool boolValue4 :1;
-            bool boolValue5 :1;
-            bool boolValue6 :1;
+            bool b0olValue1 :1;
+            bool b0olValue2 :1;
+            bool b0olValue3 :1;
+            bool b0olValue4 :1;
+            bool b0olValue5 :1;
+            bool b0olValue6 :1;
         };
         char bitfield;
     };
 };
 
-void ICPrintOffsetOfStruct();
-void ICPrintSizeOfStruct();
-void ICPrintOffsetOfSortedStruct();
-void ICPrintSizeOfOptimizedStruct();
-void ICPrintOffsetOfStructWithBitfield();
-void ICPrintSizeOfStructWithBitfield();
+void ICPrintRandomStructOffset();
+void ICPrintRandomStructSizeof();
+void ICPrintSortedStructOffset();
+void ICPrintSortedStructSizeof();
+void ICPrintStructWithBitfieldOffset();
+void ICPrintStructWithBitfieldSizeof();
+
 void ICPrintBitfield();
-void ICOneByteOutput(uint8_t *byteAdress);
-void ICBitfieldOutput(void *firstByteAdress, size_t bitfieldSize);
+void ICByteOutput(uint8_t byte);
+void ICVariableBitOutput(void *firstByteAdress, size_t variableTypeSize);
+
+char* ICBigLittleEndianTest();
 
 #endif /* ICBitfieldTest_h */
