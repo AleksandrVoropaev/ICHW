@@ -74,13 +74,22 @@ void ICPrintRandomStructOffset();
 void ICPrintRandomStructSizeof();
 void ICPrintSortedStructOffset();
 void ICPrintSortedStructSizeof();
+
+extern
+const char *kICBigEndian;
+
+extern
+const char *kICLittleEndian;
+
+
 void ICPrintStructWithBitfieldOffset();
 void ICPrintStructWithBitfieldSizeof();
 
 void ICPrintBitfield();
 void ICByteOutput(uint8_t byte);
 void ICVariableBitOutput(void *firstByteAdress, size_t variableTypeSize);
+void ICVariableBitOutputWithEndianess(void *firstByteAdress, size_t variableTypeSize, char *endianess);
 
-char* ICBigLittleEndianTest();
+char *ICGetEndianess();
 
 #endif /* ICBitfieldTest_h */

@@ -175,11 +175,15 @@ void ICPrintBitfield() {
 }
 
 static const uint8_t kICByteLength = 8;
+const char *kICBigEndian = "big-endian";
+const char *kICLittleEndian = "little-endian";
+
 
 void ICByteOutput(uint8_t byte) {
+    uint8_t byteLength = kICByteLength;
     printf(" - ");
-    for (uint8_t bitShiftCount = 0; bitShiftCount < kICByteLength; bitShiftCount++) {
-        uint8_t bitValue = byte >> (kICByteLength - bitShiftCount - 1);
+    for (uint8_t bitShiftCount = 0; bitShiftCount < byteLength; bitShiftCount++) {
+        uint8_t bitValue = byte >> (byteLength - bitShiftCount - 1);
         printf("%d", bitValue & 1);
         if (bitShiftCount != 7) {
             printf(" ");
@@ -189,25 +193,26 @@ void ICByteOutput(uint8_t byte) {
     printf(" - ");
 }
 
-void ICVariableBitOutput(void *firstByteAdress, size_t variableTypeSize) {
-    uint8_t *byte = (uint8_t *)firstByteAdress;
+void ICVariableBitOutput(void *address, size_t size) {
+    ICVariableBitOutputWithEndianess(address, size, ICGetEndianess());
+}
+
+
+void ICVariableBitOutputWithEndianess(void *address, size_t size, char *endianess) {
+    uint8_t *byte = (uint8_t *)address;
     printf(" {");
-    if (!strcmp(ICBigLittleEndianTest(), "little-endian")) {
-        for (uint8_t count = 0; count < variableTypeSize; count++) {
-            ICByteOutput(byte[variableTypeSize - count - 1]);
-        }
-    } else {
-        for (uint8_t count = 0; count < variableTypeSize; count++) {
-            ICByteOutput(byte[count]);
-        }
+    bool isLittle = (endianess == kICLittleEndian);
+    for (size_t iterator = 0; iterator < size; iterator++) {
+        size_t index = isLittle ? iterator : size - iterator - 1;
+        ICByteOutput(byte[index]);
     }
+    
     printf("}\n\n");
 }
 
-char* ICBigLittleEndianTest() {
-    char *result;
+char *ICGetEndianess() {
     uint16_t bigLittleEndianTest = 1;
-    result = ((uint8_t *)&bigLittleEndianTest)[0] == 0 ? "big-endian" : "little-endian";
+    char *result = ((uint8_t *)&bigLittleEndianTest)[0] == 0 ? kICBigEndian : kICLittleEndian;
     
     return result;
 }
