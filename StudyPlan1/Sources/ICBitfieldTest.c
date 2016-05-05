@@ -175,8 +175,8 @@ void ICPrintBitfield() {
 }
 
 static const uint8_t kICByteLength = 8;
-const char *kICBigEndian = "big-endian";
-const char *kICLittleEndian = "little-endian";
+const char *const kICBigEndian = "big-endian";
+const char *const kICLittleEndian = "little-endian";
 
 
 void ICByteOutput(uint8_t byte) {
@@ -198,7 +198,7 @@ void ICVariableBitOutput(void *address, size_t size) {
 }
 
 
-void ICVariableBitOutputWithEndianess(void *address, size_t size, char *endianess) {
+void ICVariableBitOutputWithEndianess(void *address, size_t size, const char *const endianess) {
     uint8_t *byte = (uint8_t *)address;
     printf(" {");
     bool isLittle = (endianess == kICLittleEndian);
@@ -210,9 +210,8 @@ void ICVariableBitOutputWithEndianess(void *address, size_t size, char *endianes
     printf("}\n\n");
 }
 
-char *ICGetEndianess() {
-    uint16_t bigLittleEndianTest = 1;
-    char *result = ((uint8_t *)&bigLittleEndianTest)[0] == 0 ? kICBigEndian : kICLittleEndian;
+const char *const ICGetEndianess() {
+    uint16_t value = 1;
     
-    return result;
+    return ((uint8_t *)&value)[0] == 0 ? kICBigEndian : kICLittleEndian;
 }

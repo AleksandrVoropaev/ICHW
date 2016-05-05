@@ -27,5 +27,5 @@ void ICRunAplication() {
     uint16_t twobytes = 5;
     ICVariableBitOutput(&twobytes, sizeof(twobytes));
     
-    printf("%s\n", ICBigLittleEndianTest());
+    printf("%s\n", ICGetEndianess());
 }
