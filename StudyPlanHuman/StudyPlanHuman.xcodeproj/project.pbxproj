@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */; };
 		1FF3C7A51CDA538200B21EA3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A11CDA538200B21EA3 /* main.c */; };
 		1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */; };
 		1FF3C7AB1CDA542700B21EA3 /* AVHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A91CDA542700B21EA3 /* AVHuman.c */; };
@@ -25,7 +26,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1FF3C7951CDA531C00B21EA3 /* StudyPlanHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = StudyPlanHuman; path = /Users/Aleksandr/Git/ICHW/StudyPlanHuman/build/Debug/StudyPlanHuman; sourceTree = "<absolute>"; };
+		1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudyPlanHuman; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVLinkedListNode.c; sourceTree = "<group>"; };
+		1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVLinkedListNode.h; sourceTree = "<group>"; };
 		1FF3C7A11CDA538200B21EA3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1FF3C7A21CDA538200B21EA3 /* StudyPlanHuman.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = StudyPlanHuman.xcodeproj; sourceTree = "<group>"; };
 		1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 				1FF3C79F1CDA538200B21EA3 /* Sources */,
 				1FF3C7A01CDA538200B21EA3 /* StudyPlanHuman */,
 				1FF3C7A21CDA538200B21EA3 /* StudyPlanHuman.xcodeproj */,
+				1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +65,8 @@
 				1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */,
 				1FF3C7A91CDA542700B21EA3 /* AVHuman.c */,
 				1FF3C7AA1CDA542700B21EA3 /* AVHuman.h */,
+				1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */,
+				1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -95,7 +101,7 @@
 			);
 			name = StudyPlanHuman;
 			productName = StudyPlanHuman;
-			productReference = 1FF3C7951CDA531C00B21EA3 /* StudyPlanHuman */;
+			productReference = 1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -143,6 +149,7 @@
 				1FF3C7AB1CDA542700B21EA3 /* AVHuman.c in Sources */,
 				1FF3C7A51CDA538200B21EA3 /* main.c in Sources */,
 				1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */,
+				1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +270,7 @@
 				1FF3C79E1CDA531C00B21EA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
