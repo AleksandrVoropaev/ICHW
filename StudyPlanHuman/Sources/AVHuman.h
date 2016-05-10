@@ -10,6 +10,7 @@
 #define AVHuman_h
 
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef void (*AVObjectDeallocatorCallback)(void *);
 
@@ -35,5 +36,19 @@ uint64_t AVGetReferenceCount(void *object);
 
 extern
 void __AVObjectDeallocate(void *object);
+
+typedef struct AVHuman AVHuman;
+
+struct AVHuman {
+    char *name;
+    short age;
+    bool isMale;
+    short childrenCount;
+    bool isMarried;
+    AVHuman *partner;
+    AVHuman *mother;
+    AVHuman *father;
+    AVHuman *childrens[20];
+};
 
 #endif /* AVHuman_h */

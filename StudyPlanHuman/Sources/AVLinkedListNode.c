@@ -8,14 +8,32 @@
 
 #include "AVLinkedListNode.h"
 
-extern
-AVLinkedListNode *AVLinkedListNodeCreateWithObject(AVObject *object);
+void __AVLinkedListNodeDeallocate(void *object) {
+    AVLinkedListNodeSetObject(object, NULL);
+    AVLinkedListNodeSetNextNode(object, NULL);
+    
+    __AVObjectDeallocate(object);
+}
 
-extern
-AVLinkedListNode *AVLinkedListNodeGetNextNode(AVLinkedListNode *node);
+AVLinkedListNode *AVLinkedListNodeCreateWithObject(AVObject *object) {
+    AVLinkedListNode *result = AVObjectCreateOfType(AVLinkedListNode);
+    AVLinkedListNodeSetObject(result, object);
+    
+    return result;
+}
 
-extern
-void AVLinkedListNodeSetNextNode(AVLinkedListNode *node, AVLinkedListNode *nextNode);
+AVLinkedListNode *AVLinkedListNodeGetNextNode(AVLinkedListNode *node) {
+    return NULL != node ? node->_nextNode : NULL;
+}
+
+void AVLinkedListNodeSetNextNode(AVLinkedListNode *node, AVLinkedListNode *nextNode) {
+    if (NULL != node && node->_nextNode != nextNode) {
+        AVObjectRetain(nextNode);
+        AVObjectRelease(node->_nextNode);
+        
+        node->_nextNode = nextNode;
+    }
+}
 
 extern
 AVObject *AVLinkedListNodeGetObject(AVLinkedListNode *node);
