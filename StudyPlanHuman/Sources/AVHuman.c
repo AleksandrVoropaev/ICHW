@@ -49,7 +49,9 @@ void __AVObjectDeallocate(void *object) {
     free(object);
 }
 
-//human
+// *****************************************
+// ***************** human *****************
+// *****************************************
 
 void __AVHumanDeallocate(AVHuman *human) {
     __AVObjectDeallocate(human);
@@ -95,6 +97,8 @@ void AVHumanGetMarried(AVHuman *human, AVHuman *partner) {
             && !human->isMarried
             && !partner->isMarried
             && human->isMale != partner->isMale) {
+        AVObjectRetain(human);
+        AVObjectRetain(partner);
         human->partner = partner;
         human->isMarried = true;
         partner->partner = human;
@@ -108,6 +112,8 @@ void AVHumanGetDivorced(AVHuman *firstPartner, AVHuman *secondPartner) {
         firstPartner->isMarried = false;
         secondPartner->partner = NULL;
         secondPartner->partner = false;
+        AVObjectRelease(firstPartner);
+        AVObjectRelease(secondPartner);
     }
 }
 
@@ -118,12 +124,44 @@ void AVHumanAddChildren(AVHuman *human, AVHuman *children) {
     }
 }
 
+void AVHumanDeleteChildren(AVHuman *human,AVHuman *children) {
+    if (human && children) {
+        unsigned short thisChildrenIndex = 200;
+        for (unsigned short index = 0; index < 20; index++) {
+            if (human->childrens[index] == children) {
+                thisChildrenIndex = index;
+            }
+        }
+        
+        if (200 != thisChildrenIndex) {
+            for (unsigned short index = thisChildrenIndex; index < 20 - 1; index++) {
+                human->childrens[index] = human->childrens[index + 1];
+            }
+            
+            AVHumanChildrenCountDecrese(human);
+        }
+    }
+}
+
 void AVHumanSetMother(AVHuman *human, AVHuman *mother) {
     if (human
             && mother
             && !mother->isMale
             && mother->childrens[mother->childrenCount] == human) {
         human->mother = mother;
+        AVObjectRetain(mother);
+        AVObjectRetain(human);
+        AVHumanAddChildren(mother, human);
+    }
+}
+
+void AVHumanUnSetMother(AVHuman *human, AVHuman *mother) {
+    if (human
+            && mother
+            && human->mother == mother) {
+        AVHumanDeleteChildren(mother, human);
+        AVObjectRelease(human);
+        AVObjectRelease(mother);
     }
 }
 
@@ -133,5 +171,19 @@ void AVHumanSetFather(AVHuman *human, AVHuman *father) {
             && father->isMale
             && father->childrens[father->childrenCount] == human) {
         human->father = father;
+        AVObjectRetain(human);
+        AVObjectRetain(father);
+        AVHumanAddChildren(father, human);
     }
 }
+
+void AVHumanUnSetFather(AVHuman *human, AVHuman *father) {
+    if (human
+        && father
+        && human->father == father) {
+        AVHumanDeleteChildren(father, human);
+        AVObjectRelease(human);
+        AVObjectRelease(father);
+    }
+}
+
