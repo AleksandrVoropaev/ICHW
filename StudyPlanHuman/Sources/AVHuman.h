@@ -12,43 +12,57 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-typedef void (*AVObjectDeallocatorCallback)(void *);
+#include "AVObject.h"
 
-typedef struct {
-    uint64_t referenceCount;
-    AVObjectDeallocatorCallback _deallocator;
-} AVObject;
-
-extern
-void *__AVObjectCreate(size_t objectSize, AVObjectDeallocatorCallback deallocateCallback);
-
-#define AVObjectCreateOfType(type) \
-__AVObjectCreate(sizeof(type), (AVObjectDeallocatorCallback)__##type##Deallocate)
-
-extern
-void *AVObjectRetain(void *object);
-
-extern
-void AVObjectRelease(void *object);
-
-extern
-uint64_t AVGetReferenceCount(void *object);
-
-extern
-void __AVObjectDeallocate(void *object);
+//typedef void (*AVObjectDeallocatorCallback)(void *);
+//
+//typedef struct {
+//    uint64_t referenceCount;
+//    AVObjectDeallocatorCallback _deallocator;
+//} AVObject;
+//
+//extern
+//void *__AVObjectCreate(size_t objectSize, AVObjectDeallocatorCallback deallocateCallback);
+//
+//#define AVObjectCreateOfType(type) \
+//__AVObjectCreate(sizeof(type), (AVObjectDeallocatorCallback)__##type##Deallocate)
+//
+//extern
+//void *AVObjectRetain(void *object);
+//
+//extern
+//void AVObjectRelease(void *object);
+//
+//extern
+//uint64_t AVGetReferenceCount(void *object);
+//
+//extern
+//void __AVObjectDeallocate(void *object);
 
 typedef struct AVHuman AVHuman;
 
+typedef enum {
+    AVMale,
+    AVFemale,
+} AVSex;
+
+typedef enum {
+    AVIsSingle,
+    AVIsMarried,
+    AVIsDivorced,
+} AVMaritalStatus;
+
 struct AVHuman {
-    char *name;
-    short age;
-    bool isMale;
-    short childrenCount;
-    bool isMarried;
-    AVHuman *partner;
-    AVHuman *mother;
-    AVHuman *father;
-    AVHuman *childrens[20];
+    AVObject *_object;
+    char *_name;
+    short _age;
+    AVSex _sex;
+    short _childrenCount;
+    AVMaritalStatus _maritalStatus;
+    AVHuman *_partner;
+    AVHuman *_mother;
+    AVHuman *_father;
+    AVHuman *_children[20];
 };
 
 #endif /* AVHuman_h */
