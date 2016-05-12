@@ -56,7 +56,7 @@ static const uint8_t kAVMaxChildrenCount = 20;
 static const uint8_t kAVChildNotFound = UINT8_MAX;
 
 void __AVHumanDeallocate(AVHuman *human) {
-    
+    AVHumanSetPartner(human, NULL);
     AVHumanDeleteChild(human->_mother, human);
     
     AVHumanSetMother(human, NULL);
@@ -147,6 +147,14 @@ void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
     }
 }
 
+AVHuman *AVHumanGetPartner(AVHuman *human) {
+    if (human) {
+        return human->_partner;
+    }
+    
+    return NULL;
+}
+
 void AVHumanGetMarried(AVHuman *human, AVHuman *partner) {
     if (human
         && partner
@@ -186,12 +194,12 @@ void AVHumanAddChild(AVHuman *human, AVHuman *child) {
 
 void AVHumanAddChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index) {
     if (human && child) {
-        human->_children[index] = child;
+        human->_children[index - 1] = child;
     }
 }
 
 uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child) {
-    unsigned short thisChildIndex = kAVChildNotFound;
+    unsigned short thisChildIndex = kAVChildNotFound - 1;
     if (human && child) {
         for (unsigned short index = 0; index < kAVMaxChildrenCount; index++) {
             if (human->_children[index] == child) {
@@ -200,12 +208,12 @@ uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child) {
         }
     }
     
-    return thisChildIndex;
+    return thisChildIndex + 1;
 }
 
 void AVHumanDeleteChild(AVHuman *human, AVHuman *child) {
     if (human && child) {
-        uint8_t  thisChildIndex = AVHumanGetChildIndex(human, child);
+        uint8_t  thisChildIndex = AVHumanGetChildIndex(human, child) - 1;
         
         if (kAVChildNotFound != thisChildIndex) {
             for (unsigned short index = thisChildIndex; index < kAVMaxChildrenCount - 1; index++) {
