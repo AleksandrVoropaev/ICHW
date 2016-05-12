@@ -56,6 +56,10 @@ static const uint8_t kAVMaxChildrenCount = 20;
 static const uint8_t kAVChildNotFound = UINT8_MAX;
 
 void __AVHumanDeallocate(AVHuman *human) {
+    
+    AVHumanDeleteChild(human->_mother, human);
+    
+    AVHumanSetMother(human, NULL);
     __AVObjectDeallocate(human);
 }
 
@@ -134,6 +138,15 @@ AVMaritalStatus AVHumanGetMaritalStatus(AVHuman *human) {
     return NULL;
 }
 
+void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
+    if (human && partner && human->_sex != partner->_sex) {
+        human->_partner = NULL;
+        partner->_partner = NULL;
+        human->_partner = partner;
+        partner->_partner = human;
+    }
+}
+
 void AVHumanGetMarried(AVHuman *human, AVHuman *partner) {
     if (human
         && partner
@@ -190,7 +203,7 @@ uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child) {
     return thisChildIndex;
 }
 
-void AVHumanDeleteChild(AVHuman *human,AVHuman *child) {
+void AVHumanDeleteChild(AVHuman *human, AVHuman *child) {
     if (human && child) {
         uint8_t  thisChildIndex = AVHumanGetChildIndex(human, child);
         
