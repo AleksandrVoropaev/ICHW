@@ -44,36 +44,54 @@ struct AVHuman {
     AVHuman *_children[20];
 };
 
-void __AVHumanDeallocate(AVHuman *human);
+#pragma mark -
+#pragma mark human create
 
+void __AVHumanDeallocate(AVHuman *human);
 void *AVHumanCreate();
+
+#pragma mark -
+#pragma mark setters and getters
 
 void AVHumanSetName(AVHuman *human, char *name);
 char *AVHumanGetName(AVHuman *human);
+
 void AVHumanSetAge(AVHuman *human, uint8_t age);
 uint8_t AVHumanGetAge(AVHuman *human);
+
 void AVHumanSetGendre(AVHuman *human, AVGender gendre);
 AVGender AVHumanGetGender(AVHuman *human);
+
 void AVHumanSetChildrenCountWithValue(AVHuman *human, short value);
 uint8_t AVHumanGetChildrenCount(AVHuman *human);
+
 void AVHumanSetMaritalStatus(AVHuman *human, AVMaritalStatus maritalStatus);
 AVMaritalStatus AVHumanGetMaritalStatus(AVHuman *human);
 
+#pragma mark -
+#pragma mark gender relations
+
 bool AVHumanHasDifferentGendreWithPartner(AVHuman *human, AVHuman *partner);
 
+void AVHumanSetPartner(AVHuman *human, AVHuman *partner);
 void AVHumanSetWeakPartner(AVHuman *human, AVHuman *partner);
 void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner);
 AVHuman *AVHumanGetPartner(AVHuman *human);
+
 void AVHumanStrongPartnerGetsDivorced(AVHuman *human);
 void AVHumanWeakPartnerGetsDivorced(AVHuman *human);
 
+#pragma mark -
+#pragma mark Child
+
 uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child);
 void AVHumanAddChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index);
-void AVHumanDeleteChildAtIndex(AVHuman *human, uint8_t index);
-void AVHumanDeleteAllChildren(AVHuman *human);
+void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
+void AVHumanRemoveAllChildren(AVHuman *human);
+void AVHumanResortChildrenArrayWithIndex(AVHuman *human, uint8_t index);
+
+void AVHumanSetParent(AVHuman *human, AVHuman *parent);
 void AVHumanSetMother(AVHuman *human, AVHuman *mother);
-void AVHumanUnSetMother(AVHuman *human);
 void AVHumanSetFather(AVHuman *human, AVHuman *father);
-void AVHumanUnSetFather(AVHuman *human);
 
 #endif /* AVHuman_h */
