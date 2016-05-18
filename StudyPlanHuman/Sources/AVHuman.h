@@ -51,7 +51,7 @@ char *AVHumanGetName(AVHuman *human);
 void AVHumanSetAge(AVHuman *human, uint8_t age);
 uint8_t AVHumanGetAge(AVHuman *human);
 
-void AVHumanSetGendre(AVHuman *human, AVGender gendre);
+void AVHumanSetGendre(AVHuman *human, AVGender gender);
 AVGender AVHumanGetGender(AVHuman *human);
 
 #pragma mark -

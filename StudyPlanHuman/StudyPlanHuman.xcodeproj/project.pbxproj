@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */; };
 		1F86E3D41CE4AA6E002A776F /* AVObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F86E3D21CE4AA6E002A776F /* AVObject.c */; };
+		1F9A6EE71CECC78900DACD6E /* AVHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */; };
 		1FF3C7A51CDA538200B21EA3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A11CDA538200B21EA3 /* main.c */; };
 		1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */; };
 		1FF3C7AB1CDA542700B21EA3 /* AVHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A91CDA542700B21EA3 /* AVHuman.c */; };
@@ -32,6 +33,8 @@
 		1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVLinkedListNode.h; sourceTree = "<group>"; };
 		1F86E3D21CE4AA6E002A776F /* AVObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVObject.c; sourceTree = "<group>"; };
 		1F86E3D31CE4AA6E002A776F /* AVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVObject.h; sourceTree = "<group>"; };
+		1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHumanTests.c; sourceTree = "<group>"; };
+		1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHumanTests.h; sourceTree = "<group>"; };
 		1FF3C7A11CDA538200B21EA3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
 		1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 				1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */,
 				1F86E3D21CE4AA6E002A776F /* AVObject.c */,
 				1F86E3D31CE4AA6E002A776F /* AVObject.h */,
+				1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */,
+				1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 				1FF3C7A51CDA538200B21EA3 /* main.c in Sources */,
 				1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */,
 				1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */,
+				1F9A6EE71CECC78900DACD6E /* AVHumanTests.c in Sources */,
 				1F86E3D41CE4AA6E002A776F /* AVObject.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

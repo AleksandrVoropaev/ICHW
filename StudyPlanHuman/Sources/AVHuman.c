@@ -229,20 +229,20 @@ void AVHumanSetParent(AVHuman *human, AVHuman *parent) {
 
 void AVHumanSetMother(AVHuman *human, AVHuman *mother) {
     if (human) {
-        AVHumanRemoveChildAtIndex(mother, AVHumanGetChildIndex(human->_mother, human));
+        AVHumanRemoveChildAtIndex(human->_mother, AVHumanGetChildIndex(human->_mother, human));
         AVObjectRelease(human);
         human->_mother = mother;
-        AVHumanAddChildAtIndex(mother, human, AVHumanGetChildIndex(mother, human));
+        AVHumanAddChildAtIndex(mother, human, mother->_childrenCount);
         AVObjectRetain(human);
     }
 }
 
 void AVHumanSetFather(AVHuman *human, AVHuman *father) {
     if (human) {
-        AVHumanRemoveChildAtIndex(father, AVHumanGetChildIndex(human->_father, human));
+        AVHumanRemoveChildAtIndex(human->_father, AVHumanGetChildIndex(human->_father, human));
         AVObjectRelease(human);
-        human->_mother = father;
-        AVHumanAddChildAtIndex(father, human, AVHumanGetChildIndex(father, human));
+        human->_father = father;
+        AVHumanAddChildAtIndex(father, human, father->_childrenCount);
         AVObjectRetain(human);
     }
 }
