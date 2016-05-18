@@ -18,13 +18,21 @@ static const uint8_t kAVMaxChildrenCount = 20;
 static const uint8_t kAVNotFound = UINT8_MAX;
 
 #pragma mark -
+#pragma mark Private
+
+void AVHumanSetChildrenCountWithValue(AVHuman *human, short value);
+uint8_t AVHumanGetChildrenCount(AVHuman *human);
+
+void AVHumanSetWeakPartner(AVHuman *human, AVHuman *partner);
+void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner);
+void AVHumanSetPartner(AVHuman *human, AVHuman *partner);
+
+#pragma mark -
 #pragma mark human create
 
 void __AVHumanDeallocate(AVHuman *human) {
-    AVMale == AVHumanGetGender(human) ? AVHumanStrongPartnerGetsDivorced(human) : AVHumanWeakPartnerGetsDivorced(human);
+    AVHumanGetMarried(human, NULL);
     AVHumanRemoveAllChildren(human);
-    AVHumanUnSetFather(human);
-    AVHumanUnSetMother(human);
     __AVObjectDeallocate(human);
 }
 
@@ -33,12 +41,17 @@ void *AVHumanCreate() {
 }
 
 #pragma mark -
-#pragma mark setters and getters
+#pragma mark Accessors
 
 void AVHumanSetName(AVHuman *human, char *name) {
     if (human && human->_name != name) {
-        human->_name = strdup(name);
-        free(name);
+        free(human->_name);
+        
+        if (!name) {
+            human->_name = NULL;
+        } else {
+            human->_name = strdup(name);
+        }
     }
 }
 
@@ -55,11 +68,11 @@ uint8_t AVHumanGetAge(AVHuman *human) {
 }
 
 void AVHumanSetGendre(AVHuman *human, AVGender gendre) {
-    human->_gender = human ? gendre : AVNotDefined;
+    human->_gender = human ? gendre : AVUndefined;
 }
 
 AVGender AVHumanGetGender(AVHuman *human) {
-    return human ? human->_gender : AVNotDefined;
+    return human ? human->_gender : AVUndefined;
 }
 
 void AVHumanSetChildrenCountWithValue(AVHuman *human, short value) {
@@ -70,30 +83,35 @@ uint8_t AVHumanGetChildrenCount(AVHuman *human) {
     return human ? human->_childrenCount : kAVNotFound;
 }
 
-void AVHumanSetMaritalStatus(AVHuman *human, AVMaritalStatus maritalStatus) {
-    human->_maritalStatus = human ? maritalStatus : AVNotIdentified;
-}
-
-AVMaritalStatus AVHumanGetMaritalStatus(AVHuman *human) {
-    return human ? human->_maritalStatus : AVNotIdentified;
-}
-
 #pragma mark -
 #pragma mark gender relations
 
 bool AVHumanHasDifferentGendreWithPartner(AVHuman *human, AVHuman *partner) {
-    if (human
-        && partner
-        && human->_gender != partner->_gender)
-    {
-        return true;
+    return (human && partner && human->_gender != partner->_gender);
+}
+
+void AVHumanSetWeakPartner(AVHuman *human, AVHuman *partner) {
+    if (human) {
+        human->_partner->_partner = NULL;
+        human->_partner = partner;
+        AVObjectRelease(human);
     }
-    
-    return false;
+}
+
+void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner) {
+    if (human) {
+        human->_partner->_partner = NULL;
+        human->_partner = partner;
+        AVObjectRetain(partner);
+    }
 }
 
 void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
-    if (AVHumanHasDifferentGendreWithPartner(human, partner)) {
+    if (human
+        && partner
+        && human != partner
+        && AVHumanHasDifferentGendreWithPartner(human, partner))
+    {
         if (AVMale == human->_gender) {
             AVHumanSetStrongPartner(human, partner);
             AVHumanSetWeakPartner(partner, human);
@@ -101,45 +119,56 @@ void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
             AVHumanSetStrongPartner(partner, human);
             AVHumanSetWeakPartner(human, partner);
         }
+    } else if (human && !partner) {
+        if (AVMale == human->_gender) {
+            AVHumanSetStrongPartner(human, partner);
+        } else {
+            AVHumanSetWeakPartner(human, partner);
+        }
     }
 }
 
-void AVHumanSetWeakPartner(AVHuman *human, AVHuman *partner) {
-    human->_partner = partner;
-    human->_maritalStatus = AVIsMarried;
-}
+// option of SetPartner where weak and strong setters are not needed
+//
+//void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
+//    if (human
+//        && partner
+//        && human != partner
+//        && AVHumanHasDifferentGendreWithPartner(human, partner))
+//    {
+//        AVHuman *strong = NULL;
+//        AVHuman *weak = NULL;
+//        
+//        if (AVMale == human->_gender) {
+//            strong = human;
+//            weak = partner;
+//        } else {
+//            strong = partner;
+//            weak = human;
+//        }
+//        
+//        weak->_partner->_partner = NULL;
+//        AVObjectRelease(weak);
+//        
+//        strong->_partner->_partner = NULL;
+//        AVObjectRelease(strong->_partner);
+//        
+//        strong->_partner = weak;
+//        weak->_partner = strong;
+//        AVObjectRetain(weak);
+//    }
+//}
 
-void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner) {
-    AVObjectRelease(partner);
-    human->_partner = partner;
-    human->_maritalStatus = AVIsMarried;
-    AVObjectRetain(partner);
+void AVHumanGetMarried(AVHuman *human, AVHuman *partner) {
+    AVHumanSetPartner(human->_partner, NULL);
+    AVHumanSetPartner(partner->_partner, NULL);
+    AVHumanSetPartner(human, NULL);
+    AVHumanSetPartner(partner, NULL);
+    AVHumanSetPartner(human, partner);
 }
 
 AVHuman *AVHumanGetPartner(AVHuman *human) {
-    if (human) {
-        return human->_partner;
-    }
-    
-    return NULL;
-}
-
-void AVHumanStrongPartnerGetsDivorced(AVHuman *human) {
-    if (human && human->_partner)
-    {
-        human->_partner->_partner = NULL;
-        human->_partner->_maritalStatus = AVIsDivorced;
-        human->_partner = NULL;
-        human->_maritalStatus = AVIsDivorced;
-        AVObjectRelease(human);
-    }
-}
-
-void AVHumanWeakPartnerGetsDivorced(AVHuman *human) {
-    if (human) {
-        human->_partner = NULL;
-        human->_maritalStatus = AVIsDivorced;
-    }
+    return human ? human->_partner : NULL;
 }
 
 #pragma mark -

@@ -33,7 +33,6 @@
 		1F86E3D21CE4AA6E002A776F /* AVObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVObject.c; sourceTree = "<group>"; };
 		1F86E3D31CE4AA6E002A776F /* AVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVObject.h; sourceTree = "<group>"; };
 		1FF3C7A11CDA538200B21EA3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		1FF3C7A21CDA538200B21EA3 /* StudyPlanHuman.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = StudyPlanHuman.xcodeproj; sourceTree = "<group>"; };
 		1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
 		1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
 		1FF3C7A91CDA542700B21EA3 /* AVHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHuman.c; sourceTree = "<group>"; };
@@ -56,7 +55,6 @@
 			children = (
 				1FF3C79F1CDA538200B21EA3 /* Sources */,
 				1FF3C7A01CDA538200B21EA3 /* StudyPlanHuman */,
-				1FF3C7A21CDA538200B21EA3 /* StudyPlanHuman.xcodeproj */,
 				1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */,
 			);
 			sourceTree = "<group>";
@@ -82,11 +80,6 @@
 				1FF3C7A11CDA538200B21EA3 /* main.c */,
 			);
 			path = StudyPlanHuman;
-			sourceTree = "<group>";
-		};
-		1FF3C7A31CDA538200B21EA3 /* Products */ = {
-			isa = PBXGroup;
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,12 +126,6 @@
 			mainGroup = 1FF3C78C1CDA531C00B21EA3;
 			productRefGroup = 1FF3C78C1CDA531C00B21EA3;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1FF3C7A31CDA538200B21EA3 /* Products */;
-					ProjectRef = 1FF3C7A21CDA538200B21EA3 /* StudyPlanHuman.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1FF3C7941CDA531C00B21EA3 /* StudyPlanHuman */,
