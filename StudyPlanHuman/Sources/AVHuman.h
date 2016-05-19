@@ -17,9 +17,9 @@
 typedef struct AVHuman AVHuman;
 
 typedef enum {
-    AVUndefined,
-    AVMale,
-    AVFemale,
+    AVGenderUndefined,
+    AVGenderMale,
+    AVGenderFemale,
 } AVGender;
 
 struct AVHuman {
@@ -51,7 +51,7 @@ char *AVHumanGetName(AVHuman *human);
 void AVHumanSetAge(AVHuman *human, uint8_t age);
 uint8_t AVHumanGetAge(AVHuman *human);
 
-void AVHumanSetGendre(AVHuman *human, AVGender gender);
+void AVHumanSetGender(AVHuman *human, AVGender gender);
 AVGender AVHumanGetGender(AVHuman *human);
 
 #pragma mark -
@@ -59,20 +59,29 @@ AVGender AVHumanGetGender(AVHuman *human);
 
 bool AVHumanHasDifferentGendreWithPartner(AVHuman *human, AVHuman *partner);
 
+void AVHumanGetDivorced(AVHuman *human);
 void AVHumanGetMarried(AVHuman *human, AVHuman *partner);
+
 AVHuman *AVHumanGetPartner(AVHuman *human);
 
 #pragma mark -
 #pragma mark Child
 
-uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child);
-void AVHumanAddChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index);
-void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
-void AVHumanRemoveAllChildren(AVHuman *human);
-void AVHumanResortChildrenArrayWithIndex(AVHuman *human, uint8_t index);
+void AVHumanAddChild(AVHuman *human, AVHuman *child);
+AVHuman *AVHumanGetChildWithIndex(AVHuman *human, uint8_t index);
 
-void AVHumanSetParent(AVHuman *human, AVHuman *parent);
+void AVHumanSetParent(AVHuman *human, AVHuman *parent, AVGender parentGender);
+
 void AVHumanSetMother(AVHuman *human, AVHuman *mother);
+AVHuman *AVHumanGetMother(AVHuman *human);
+
 void AVHumanSetFather(AVHuman *human, AVHuman *father);
+AVHuman *AVHumanGetFather(AVHuman *human);
+
+void AVHumanRemoveChildren(AVHuman *human);
+void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
+
+uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child);
+void AVHumanReorderChildrenArrayWithIndex(AVHuman *human, uint8_t index);
 
 #endif /* AVHuman_h */

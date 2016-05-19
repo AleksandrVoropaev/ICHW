@@ -31,8 +31,13 @@ void AVHumanSetPartner(AVHuman *human, AVHuman *partner);
 #pragma mark human create
 
 void __AVHumanDeallocate(AVHuman *human) {
-    AVHumanGetMarried(human, NULL);
-    AVHumanRemoveAllChildren(human);
+    AVHumanSetName(human, NULL);
+    AVHumanSetAge(human, 0);
+    AVHumanSetGender(human, AVGenderUndefined);
+    AVHumanRemoveChildren(human);
+    AVHumanSetParent(human, NULL, AVGenderMale);
+    AVHumanSetParent(human, NULL, AVGenderFemale);
+    AVHumanSetPartner(human, NULL);
     __AVObjectDeallocate(human);
 }
 
@@ -44,14 +49,13 @@ void *AVHumanCreate() {
 #pragma mark Accessors
 
 void AVHumanSetName(AVHuman *human, char *name) {
-    if (human && human->_name != name) {
+    if (human->_name) {
         free(human->_name);
-        
-        if (!name) {
-            human->_name = NULL;
-        } else {
-            human->_name = strdup(name);
-        }
+        human->_name = NULL;
+    }
+    
+    if (name) {
+        human->_name = strdup(name);
     }
 }
 
@@ -67,12 +71,12 @@ uint8_t AVHumanGetAge(AVHuman *human) {
     return human ? human->_age : kAVNotFound;
 }
 
-void AVHumanSetGendre(AVHuman *human, AVGender gendre) {
-    human->_gender = human ? gendre : AVUndefined;
+void AVHumanSetGender(AVHuman *human, AVGender gender) {
+    human->_gender = human ? gender : AVGenderUndefined;
 }
 
 AVGender AVHumanGetGender(AVHuman *human) {
-    return human ? human->_gender : AVUndefined;
+    return human ? human->_gender : AVGenderUndefined;
 }
 
 void AVHumanSetChildrenCountWithValue(AVHuman *human, short value) {
@@ -86,21 +90,19 @@ uint8_t AVHumanGetChildrenCount(AVHuman *human) {
 #pragma mark -
 #pragma mark gender relations
 
-bool AVHumanHasDifferentGendreWithPartner(AVHuman *human, AVHuman *partner) {
-    return (human && partner && human->_gender != partner->_gender);
+bool AVHumanHasDifferentGenderWithPartner(AVHuman *human, AVHuman *partner) {
+    return (human && partner && AVHumanGetGender(human) != AVHumanGetGender(partner));
 }
 
 void AVHumanSetWeakPartner(AVHuman *human, AVHuman *partner) {
     if (human) {
-        human->_partner->_partner = NULL;
         human->_partner = partner;
-        AVObjectRelease(human);
     }
 }
 
 void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner) {
     if (human) {
-        human->_partner->_partner = NULL;
+        AVHumanGetPartner(human) ? AVObjectRelease(AVHumanGetPartner(human)) : NULL;
         human->_partner = partner;
         AVObjectRetain(partner);
     }
@@ -108,19 +110,10 @@ void AVHumanSetStrongPartner(AVHuman *human, AVHuman *partner) {
 
 void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
     if (human
-        && partner
         && human != partner
-        && AVHumanHasDifferentGendreWithPartner(human, partner))
+        && AVHumanHasDifferentGenderWithPartner(human, partner))
     {
-        if (AVMale == human->_gender) {
-            AVHumanSetStrongPartner(human, partner);
-            AVHumanSetWeakPartner(partner, human);
-        } else {
-            AVHumanSetStrongPartner(partner, human);
-            AVHumanSetWeakPartner(human, partner);
-        }
-    } else if (human && !partner) {
-        if (AVMale == human->_gender) {
+        if (AVGenderMale == AVHumanGetGender(human)) {
             AVHumanSetStrongPartner(human, partner);
         } else {
             AVHumanSetWeakPartner(human, partner);
@@ -128,43 +121,17 @@ void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
     }
 }
 
-// option of SetPartner where weak and strong setters are not needed
-//
-//void AVHumanSetPartner(AVHuman *human, AVHuman *partner) {
-//    if (human
-//        && partner
-//        && human != partner
-//        && AVHumanHasDifferentGendreWithPartner(human, partner))
-//    {
-//        AVHuman *strong = NULL;
-//        AVHuman *weak = NULL;
-//        
-//        if (AVMale == human->_gender) {
-//            strong = human;
-//            weak = partner;
-//        } else {
-//            strong = partner;
-//            weak = human;
-//        }
-//        
-//        weak->_partner->_partner = NULL;
-//        AVObjectRelease(weak);
-//        
-//        strong->_partner->_partner = NULL;
-//        AVObjectRelease(strong->_partner);
-//        
-//        strong->_partner = weak;
-//        weak->_partner = strong;
-//        AVObjectRetain(weak);
-//    }
-//}
+void AVHumanGetDivorced(AVHuman *human) {
+    AVHumanSetPartner(AVHumanGetPartner(human), NULL);
+    AVHumanSetPartner(human, NULL);
+}
 
 void AVHumanGetMarried(AVHuman *human, AVHuman *partner) {
-    AVHumanSetPartner(human->_partner, NULL);
-    AVHumanSetPartner(partner->_partner, NULL);
-    AVHumanSetPartner(human, NULL);
-    AVHumanSetPartner(partner, NULL);
+    AVHumanGetDivorced(human);
+    AVHumanGetDivorced(partner);
+    
     AVHumanSetPartner(human, partner);
+    AVHumanSetPartner(partner, human);
 }
 
 AVHuman *AVHumanGetPartner(AVHuman *human) {
@@ -174,36 +141,51 @@ AVHuman *AVHumanGetPartner(AVHuman *human) {
 #pragma mark -
 #pragma mark Child
 
-uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child) {
-    uint8_t thisChildIndex = kAVNotFound;
-    if (human && child) {
-        for (uint8_t index = 0; index < kAVMaxChildrenCount; index++) {
-            if (human->_children[index] == child) {
-                thisChildIndex = index;
-            }
-        }
-    }
-    
-    return thisChildIndex;
-}
-
-void AVHumanAddChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index) {
-    if (human && child) {
-        human->_children[index] = child;
-        AVObjectRetain(human);
+void AVHumanAddChild(AVHuman *human, AVHuman *child) {
+    if (human
+        && human != child
+        && kAVNotFound == AVHumanGetChildIndex(human, child)
+        && kAVMaxChildrenCount >= AVHumanGetChildrenCount(human))
+    {
+        human->_children[AVHumanGetChildrenCount(human)] = child;
+        AVHumanSetChildrenCountWithValue(human, AVHumanGetChildrenCount(human) + 1);
+        AVObjectRetain(child);
+        AVHumanSetParent(child, human, AVHumanGetGender(human));
     }
 }
 
-void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index) {
+AVHuman *AVHumanGetChildWithIndex(AVHuman *human, uint8_t index) {
+    return human ? human->_children[index] : NULL;
+}
+
+void AVHumanSetParent(AVHuman *human, AVHuman *parent, AVGender parentGender) {
+    if (human && AVGenderMale == parentGender) {
+        AVHumanSetFather(human, parent);
+    } else if (human && AVGenderFemale == parentGender) {
+        AVHumanSetMother(human, parent);
+    }
+}
+
+void AVHumanSetMother(AVHuman *human, AVHuman *mother) {
     if (human) {
-        human->_children[index] = NULL;
-        human->_childrenCount--;
-        AVObjectRelease(human);
-        AVHumanResortChildrenArrayWithIndex(human, index);
+        human->_mother = mother;
     }
 }
 
-void AVHumanRemoveAllChildren(AVHuman *human) {
+AVHuman *AVHumanGetMother(AVHuman *human) {
+    return human ? human->_mother : NULL;
+}
+
+void AVHumanSetFather(AVHuman *human, AVHuman *father) {
+    if (human) {
+        human->_father = father;
+    }
+}
+AVHuman *AVHumanGetFather(AVHuman *human) {
+    return human ? human->_father : NULL;
+}
+
+void AVHumanRemoveChildren(AVHuman *human) {
     if (human) {
         for (uint8_t index = 0; index < AVHumanGetChildrenCount(human); index++) {
             AVHumanRemoveChildAtIndex(human, index);
@@ -211,38 +193,32 @@ void AVHumanRemoveAllChildren(AVHuman *human) {
     }
 }
 
-void AVHumanResortChildrenArrayWithIndex(AVHuman *human, uint8_t index) {
+void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index) {
+    if (human) {
+        AVObjectRelease(human->_children[index]);
+        human->_children[index] = NULL;
+        AVHumanSetChildrenCountWithValue(human, AVHumanGetChildrenCount(human) - 1);
+        AVHumanReorderChildrenArrayWithIndex(human, index);
+    }
+}
+
+uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child) {
+    uint8_t result = kAVNotFound;
+    if (human && child) {
+        for (uint8_t index = 0; index < kAVMaxChildrenCount; index++) {
+            if (human->_children[index] == child) {
+                result = index;
+            }
+        }
+    }
+    
+    return result;
+}
+
+void AVHumanReorderChildrenArrayWithIndex(AVHuman *human, uint8_t index) {
     if (human) {
         for (uint8_t count = index; count < kAVMaxChildrenCount - 1; count++) {
             human->_children[count] = human->_children[count + 1];
         }
-    }
-}
-
-void AVHumanSetParent(AVHuman *human, AVHuman *parent) {
-    if (human && AVMale == parent->_gender) {
-        AVHumanSetFather(human, parent);
-    } else if (human && AVFemale == parent->_gender) {
-        AVHumanSetMother(human, parent);
-    }
-}
-
-void AVHumanSetMother(AVHuman *human, AVHuman *mother) {
-    if (human) {
-        AVHumanRemoveChildAtIndex(human->_mother, AVHumanGetChildIndex(human->_mother, human));
-        AVObjectRelease(human);
-        human->_mother = mother;
-        AVHumanAddChildAtIndex(mother, human, mother->_childrenCount);
-        AVObjectRetain(human);
-    }
-}
-
-void AVHumanSetFather(AVHuman *human, AVHuman *father) {
-    if (human) {
-        AVHumanRemoveChildAtIndex(human->_father, AVHumanGetChildIndex(human->_father, human));
-        AVObjectRelease(human);
-        human->_father = father;
-        AVHumanAddChildAtIndex(father, human, father->_childrenCount);
-        AVObjectRetain(human);
     }
 }

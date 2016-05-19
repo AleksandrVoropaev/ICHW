@@ -8,3 +8,15 @@
 
 #include "AVHumanTests.h"
 #include "AVHuman.h"
+
+void AVHumanTest() {
+    
+    
+    AVHuman wallie = AVHumanCreate();
+    AVHumanSetName(wallie, "Wallie");
+    AVHumanSetAge(humwalliean, 20);
+    AVHumanSetGender(wallie, AVGenderMale);
+    AVHumanSetParent(wallie, NULL, AVGenderMale);
+    AVHumanSetParent(wallie, NULL, AVGenderFemale);
+    AVHumanSetPartner(wallie, NULL);
+}
