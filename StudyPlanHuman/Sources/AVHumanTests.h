@@ -9,4 +9,6 @@
 #ifndef AVHumanTests_h
 #define AVHumanTests_h
 
+void AVHumanTest();
+
 #endif /* AVHumanTests_h */

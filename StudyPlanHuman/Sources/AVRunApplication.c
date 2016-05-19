@@ -7,8 +7,8 @@
 //
 
 #include "AVRunApplication.h"
-#include "AVHuman.h"
+#include "AVHumanTests.h"
 
 void AVRunApplication() {
-    
+    AVHumanTest();
 }
