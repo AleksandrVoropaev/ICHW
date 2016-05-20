@@ -21,7 +21,7 @@ typedef struct {
 extern
 void *__AVObjectCreate(size_t objectSize, AVObjectDeallocatorCallback deallocateCallback);
 
-#define AVObjectCreateOfType(type) \
+#define AVObjectCreateWithType(type) \
     __AVObjectCreate(sizeof(type), (AVObjectDeallocatorCallback)__##type##Deallocate)
 
 extern

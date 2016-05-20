@@ -67,21 +67,19 @@ AVHuman *AVHumanGetPartner(AVHuman *human);
 #pragma mark -
 #pragma mark Child
 
+void AVHumanSetChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index);
+
 void AVHumanAddChild(AVHuman *human, AVHuman *child);
-AVHuman *AVHumanGetChildWithIndex(AVHuman *human, uint8_t index);
+AVHuman *AVHumanGetChildAtIndex(AVHuman *human, uint8_t index);
 
-void AVHumanSetParent(AVHuman *human, AVHuman *parent, AVGender parentGender);
-
-void AVHumanSetMother(AVHuman *human, AVHuman *mother);
 AVHuman *AVHumanGetMother(AVHuman *human);
 
-void AVHumanSetFather(AVHuman *human, AVHuman *father);
 AVHuman *AVHumanGetFather(AVHuman *human);
 
 void AVHumanRemoveChildren(AVHuman *human);
 void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
 
 uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child);
-void AVHumanReorderChildrenArrayWithIndex(AVHuman *human, uint8_t index);
+void AVHumanReorderChildrenStartingWithIndex(AVHuman *human, uint8_t index);
 
 #endif /* AVHuman_h */
