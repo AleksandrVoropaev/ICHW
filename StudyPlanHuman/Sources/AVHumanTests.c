@@ -28,8 +28,7 @@ void AVHumanTest() {
     AVHumanSetAge(homer, 40);
     AVHumanSetGender(homer, AVGenderMale);
     
-    AVHumanSetParent(homer, abraham, AVGenderMale);
-    AVHumanSetParent(homer, mona, AVGenderFemale);
+    AVHumanGiveBirthToChild(abraham, mona, homer);
     
     AVHuman *marge = AVHumanCreate();
     AVHumanSetName(marge, "Marge");
@@ -44,14 +43,12 @@ void AVHumanTest() {
     AVHumanSetAge(bart, 15);
     AVHumanSetGender(bart, AVGenderMale);
     
-    AVHumanSetParent(bart, homer, AVGenderMale);
-    AVHumanSetParent(bart, marge, AVGenderFemale);
+    AVHumanGiveBirthToChild(homer, marge, bart);
     
     AVHuman *lisa = AVHumanCreate();
     AVHumanSetName(lisa, "Lisa");
     AVHumanSetAge(lisa, 10);
     AVHumanSetGender(lisa, AVGenderFemale);
     
-    AVHumanSetParent(lisa, homer, AVGenderMale);
-    AVHumanSetParent(lisa, marge, AVGenderFemale);
+    AVHumanGiveBirthToChild(homer, marge, lisa);
 }

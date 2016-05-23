@@ -76,8 +76,11 @@ AVHuman *AVHumanGetMother(AVHuman *human);
 
 AVHuman *AVHumanGetFather(AVHuman *human);
 
+void AVHumanGiveBirthToChild(AVHuman *father, AVHuman *mother, AVHuman *child);
+
 void AVHumanRemoveChildren(AVHuman *human);
 void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
+void AVHumanRemoveChild(AVHuman *human, AVHuman *child);
 
 uint8_t AVHumanGetChildIndex(AVHuman *human, AVHuman *child);
 void AVHumanReorderChildrenStartingWithIndex(AVHuman *human, uint8_t index);
