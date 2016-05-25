@@ -23,12 +23,10 @@ void AVHumanTest() {
     AVHumanGetMarried(abraham, mona);
     AVHumanGetMarried(mona, abraham);
     
-    AVHuman *homer = AVHumanCreate();
+    AVHuman *homer = AVGiveBirthToChild(abraham);
     AVHumanSetName(homer, "Homer");
     AVHumanSetAge(homer, 40);
     AVHumanSetGender(homer, AVGenderMale);
-    
-    AVHumanGiveBirthToChild(abraham, mona, homer);
     
     AVHuman *marge = AVHumanCreate();
     AVHumanSetName(marge, "Marge");
@@ -38,17 +36,28 @@ void AVHumanTest() {
     AVHumanGetMarried(homer, marge);
     AVHumanGetMarried(marge, homer);
     
-    AVHuman *bart = AVHumanCreate();
+    AVHuman *bart = AVGiveBirthToChild(homer);
     AVHumanSetName(bart, "Bart");
     AVHumanSetAge(bart, 15);
     AVHumanSetGender(bart, AVGenderMale);
     
-    AVHumanGiveBirthToChild(homer, marge, bart);
-    
-    AVHuman *lisa = AVHumanCreate();
+    AVHuman *lisa = AVGiveBirthToChild(marge);
     AVHumanSetName(lisa, "Lisa");
     AVHumanSetAge(lisa, 10);
     AVHumanSetGender(lisa, AVGenderFemale);
     
-    AVHumanGiveBirthToChild(homer, marge, lisa);
+    AVHumanRemoveChild(homer, bart);
+    AVHumanRemoveChild(homer, lisa);
+    
+    AVHumanRemoveChildren(marge);
+    
+    AVHumanRemoveChildren(abraham);
+    AVHumanRemoveChildren(mona);
+    
+    AVHumanGetDivorced(homer);
+    AVHumanGetDivorced(mona);
+    
+    AVObjectRelease(abraham);
+    AVObjectRelease(mona);
+    AVObjectRelease(marge);
 }

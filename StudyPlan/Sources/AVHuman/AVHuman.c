@@ -169,24 +169,29 @@ void AVHumanSetChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index) {
     }
 }
 
-AVHuman *AVHumanAddChild(AVHuman *father, AVHuman *mother) {
-    if (father && mother) {
+void AVHumanAddChild(AVHuman *parent, AVHuman *child) {
+    if (parent
+        && parent != child
+        && kAVNotFound == AVHumanGetChildIndex(parent, child)
+        && kAVMaxChildrenCount >= AVHumanGetChildrenCount(parent))
+    {
+        AVHumanSetChildAtIndex(parent, child, AVHumanGetChildrenCount(parent));
+        AVHumanChildrenCountAddValue(parent, +1);
+        AVHumanSetParent(child, parent, AVHumanGetGender(parent));
+    }
+}
+
+AVHuman *AVGiveBirthToChild(AVHuman *parent) {
+    if (parent
+        && AVHumanGetPartner(parent))
+    {
         AVHuman *child = AVHumanCreate();
         
-        if (child
-            && father != child
-            && mother != child
-            && kAVNotFound == AVHumanGetChildIndex(father, child)
-            && kAVNotFound == AVHumanGetChildIndex(mother, child)
-            && kAVMaxChildrenCount >= AVHumanGetChildrenCount(father)
-            && kAVMaxChildrenCount >= AVHumanGetChildrenCount(mother))
-        {
-            AVHumanSetChildAtIndex(father, child, AVHumanGetChildrenCount(father));
-            AVHumanSetChildAtIndex(mother, child, AVHumanGetChildrenCount(mother));
-            AVHumanChildrenCountAddValue(father, +1);
-            AVHumanChildrenCountAddValue(mother, +1);
-            AVHumanSetParent(child, father, AVHumanGetGender(father));
-            AVHumanSetParent(child, mother, AVHumanGetGender(mother));
+        if (child) {
+            AVHumanAddChild(parent, child);
+            AVHumanAddChild(AVHumanGetPartner(parent), child);
+
+            AVObjectRelease(child);
             
             return child;
         }
@@ -230,11 +235,6 @@ AVHuman *AVHumanGetFather(AVHuman *human) {
     return human ? human->_father : NULL;
 }
 
-//void AVHumanGiveBirthToChild(AVHuman *father, AVHuman *mother) {
-//    AVHumanAddChild(father);
-//    AVHumanAddChild(mother);
-//}
-
 void AVHumanRemoveChildren(AVHuman *human) {
     if (human) {
         uint8_t iterationsValue = AVHumanGetChildrenCount(human);
@@ -246,7 +246,7 @@ void AVHumanRemoveChildren(AVHuman *human) {
 
 void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index) {
     if (human) {
-        AVHumanSetParent(AVHumanGetChildAtIndex(human, index), NULL, AVGenderMale);
+        AVHumanSetParent(AVHumanGetChildAtIndex(human, index), NULL, AVHumanGetGender(human));
         AVHumanSetChildAtIndex(human, NULL, index);
         AVHumanChildrenCountAddValue(human, -1);
         AVHumanReorderChildrenStartingWithIndex(human, index);

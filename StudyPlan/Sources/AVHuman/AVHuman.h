@@ -69,14 +69,15 @@ AVHuman *AVHumanGetPartner(AVHuman *human);
 
 void AVHumanSetChildAtIndex(AVHuman *human, AVHuman *child, uint8_t index);
 
-AVHuman *AVHumanAddChild(AVHuman *father, AVHuman *mother);
+void AVHumanAddChild(AVHuman *parent, AVHuman *child);
+
+AVHuman *AVGiveBirthToChild(AVHuman *parent);
+
 AVHuman *AVHumanGetChildAtIndex(AVHuman *human, uint8_t index);
 
 AVHuman *AVHumanGetMother(AVHuman *human);
 
 AVHuman *AVHumanGetFather(AVHuman *human);
-
-//void AVHumanGiveBirthToChild(AVHuman *father, AVHuman *mother, AVHuman *child);
 
 void AVHumanRemoveChildren(AVHuman *human);
 void AVHumanRemoveChildAtIndex(AVHuman *human, uint8_t index);
