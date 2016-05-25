@@ -35,7 +35,7 @@
 		1F86E3D31CE4AA6E002A776F /* AVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVObject.h; sourceTree = "<group>"; };
 		1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHumanTests.c; sourceTree = "<group>"; };
 		1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHumanTests.h; sourceTree = "<group>"; };
-		1FCA28EF1CF3444400684923 /* AVUsableThings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVUsableThings.h; sourceTree = "<group>"; };
+		1FCA28EF1CF3444400684923 /* AVSwitchHelpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSwitchHelpMacro.h; sourceTree = "<group>"; };
 		1FF3C7A11CDA538200B21EA3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
 		1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 				1F86E3D31CE4AA6E002A776F /* AVObject.h */,
 				1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */,
 				1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */,
-				1FCA28EF1CF3444400684923 /* AVUsableThings.h */,
+				1FCA28EF1CF3444400684923 /* AVSwitchHelpMacro.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
