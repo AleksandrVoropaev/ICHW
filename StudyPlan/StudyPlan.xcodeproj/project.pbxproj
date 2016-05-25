@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */; };
-		1F86E3D41CE4AA6E002A776F /* AVObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F86E3D21CE4AA6E002A776F /* AVObject.c */; };
-		1F9A6EE71CECC78900DACD6E /* AVHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */; };
-		1FF3C7A51CDA538200B21EA3 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A11CDA538200B21EA3 /* main.c */; };
-		1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */; };
-		1FF3C7AB1CDA542700B21EA3 /* AVHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C7A91CDA542700B21EA3 /* AVHuman.c */; };
+		1F0438461CF5F43F00DBD06F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0438231CF5F43F00DBD06F /* main.c */; };
+		1F0438471CF5F43F00DBD06F /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0438241CF5F43F00DBD06F /* main.c */; };
+		1F0438481CF5F43F00DBD06F /* AVHuman.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0438271CF5F43F00DBD06F /* AVHuman.c */; };
+		1F0438491CF5F43F00DBD06F /* AVLinkedListNode.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F04382A1CF5F43F00DBD06F /* AVLinkedListNode.c */; };
+		1F04384A1CF5F43F00DBD06F /* AVObject.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F04382D1CF5F43F00DBD06F /* AVObject.c */; };
+		1F04384B1CF5F43F00DBD06F /* AVRunApplication.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F04382F1CF5F43F00DBD06F /* AVRunApplication.c */; };
+		1F04384C1CF5F43F00DBD06F /* AVHumanTests.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0438321CF5F43F00DBD06F /* AVHumanTests.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,19 +29,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudyPlanHuman; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVLinkedListNode.c; sourceTree = "<group>"; };
-		1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVLinkedListNode.h; sourceTree = "<group>"; };
-		1F86E3D21CE4AA6E002A776F /* AVObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVObject.c; sourceTree = "<group>"; };
-		1F86E3D31CE4AA6E002A776F /* AVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVObject.h; sourceTree = "<group>"; };
-		1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHumanTests.c; sourceTree = "<group>"; };
-		1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHumanTests.h; sourceTree = "<group>"; };
-		1FCA28EF1CF3444400684923 /* AVSwitchHelpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSwitchHelpMacro.h; sourceTree = "<group>"; };
-		1FF3C7A11CDA538200B21EA3 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
-		1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
-		1FF3C7A91CDA542700B21EA3 /* AVHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHuman.c; sourceTree = "<group>"; };
-		1FF3C7AA1CDA542700B21EA3 /* AVHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHuman.h; sourceTree = "<group>"; };
+		1F0438231CF5F43F00DBD06F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		1F0438241CF5F43F00DBD06F /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = StudyPlan/main.c; sourceTree = "<group>"; };
+		1F0438271CF5F43F00DBD06F /* AVHuman.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHuman.c; sourceTree = "<group>"; };
+		1F0438281CF5F43F00DBD06F /* AVHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHuman.h; sourceTree = "<group>"; };
+		1F04382A1CF5F43F00DBD06F /* AVLinkedListNode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVLinkedListNode.c; sourceTree = "<group>"; };
+		1F04382B1CF5F43F00DBD06F /* AVLinkedListNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVLinkedListNode.h; sourceTree = "<group>"; };
+		1F04382D1CF5F43F00DBD06F /* AVObject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVObject.c; sourceTree = "<group>"; };
+		1F04382E1CF5F43F00DBD06F /* AVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVObject.h; sourceTree = "<group>"; };
+		1F04382F1CF5F43F00DBD06F /* AVRunApplication.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVRunApplication.c; sourceTree = "<group>"; };
+		1F0438301CF5F43F00DBD06F /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
+		1F0438321CF5F43F00DBD06F /* AVHumanTests.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AVHumanTests.c; sourceTree = "<group>"; };
+		1F0438331CF5F43F00DBD06F /* AVHumanTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVHumanTests.h; sourceTree = "<group>"; };
+		1F0438351CF5F43F00DBD06F /* AVSwitchHelpMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSwitchHelpMacro.h; sourceTree = "<group>"; };
+		1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = StudyPlanHuman; path = /Users/Aleksandr/Git/ICHW/StudyPlan/build/Debug/StudyPlanHuman; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,39 +56,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1FF3C78C1CDA531C00B21EA3 = {
+		1F0438221CF5F43F00DBD06F /* StudyPlan */ = {
 			isa = PBXGroup;
 			children = (
-				1FF3C79F1CDA538200B21EA3 /* Sources */,
-				1FF3C7A01CDA538200B21EA3 /* StudyPlanHuman */,
-				1F86E3CE1CE0B39A002A776F /* StudyPlanHuman */,
+				1F0438231CF5F43F00DBD06F /* main.c */,
 			);
+			path = StudyPlan;
 			sourceTree = "<group>";
 		};
-		1FF3C79F1CDA538200B21EA3 /* Sources */ = {
+		1F0438251CF5F43F00DBD06F /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1FF3C7A61CDA53AD00B21EA3 /* AVRunApplication.c */,
-				1FF3C7A71CDA53AD00B21EA3 /* AVRunApplication.h */,
-				1FF3C7A91CDA542700B21EA3 /* AVHuman.c */,
-				1FF3C7AA1CDA542700B21EA3 /* AVHuman.h */,
-				1F86E3CF1CE0E788002A776F /* AVLinkedListNode.c */,
-				1F86E3D01CE0E788002A776F /* AVLinkedListNode.h */,
-				1F86E3D21CE4AA6E002A776F /* AVObject.c */,
-				1F86E3D31CE4AA6E002A776F /* AVObject.h */,
-				1F9A6EE51CECC78900DACD6E /* AVHumanTests.c */,
-				1F9A6EE61CECC78900DACD6E /* AVHumanTests.h */,
-				1FCA28EF1CF3444400684923 /* AVSwitchHelpMacro.h */,
+				1F0438261CF5F43F00DBD06F /* AVHuman */,
+				1F0438291CF5F43F00DBD06F /* AVLinkedList */,
+				1F04382C1CF5F43F00DBD06F /* AVObject */,
+				1F04382F1CF5F43F00DBD06F /* AVRunApplication.c */,
+				1F0438301CF5F43F00DBD06F /* AVRunApplication.h */,
+				1F0438311CF5F43F00DBD06F /* AVTests */,
+				1F0438341CF5F43F00DBD06F /* HelpingThings */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		1FF3C7A01CDA538200B21EA3 /* StudyPlanHuman */ = {
+		1F0438261CF5F43F00DBD06F /* AVHuman */ = {
 			isa = PBXGroup;
 			children = (
-				1FF3C7A11CDA538200B21EA3 /* main.c */,
+				1F0438271CF5F43F00DBD06F /* AVHuman.c */,
+				1F0438281CF5F43F00DBD06F /* AVHuman.h */,
 			);
-			path = StudyPlanHuman;
+			path = AVHuman;
+			sourceTree = "<group>";
+		};
+		1F0438291CF5F43F00DBD06F /* AVLinkedList */ = {
+			isa = PBXGroup;
+			children = (
+				1F04382A1CF5F43F00DBD06F /* AVLinkedListNode.c */,
+				1F04382B1CF5F43F00DBD06F /* AVLinkedListNode.h */,
+			);
+			path = AVLinkedList;
+			sourceTree = "<group>";
+		};
+		1F04382C1CF5F43F00DBD06F /* AVObject */ = {
+			isa = PBXGroup;
+			children = (
+				1F04382D1CF5F43F00DBD06F /* AVObject.c */,
+				1F04382E1CF5F43F00DBD06F /* AVObject.h */,
+			);
+			path = AVObject;
+			sourceTree = "<group>";
+		};
+		1F0438311CF5F43F00DBD06F /* AVTests */ = {
+			isa = PBXGroup;
+			children = (
+				1F0438321CF5F43F00DBD06F /* AVHumanTests.c */,
+				1F0438331CF5F43F00DBD06F /* AVHumanTests.h */,
+			);
+			path = AVTests;
+			sourceTree = "<group>";
+		};
+		1F0438341CF5F43F00DBD06F /* HelpingThings */ = {
+			isa = PBXGroup;
+			children = (
+				1F0438351CF5F43F00DBD06F /* AVSwitchHelpMacro.h */,
+			);
+			path = HelpingThings;
+			sourceTree = "<group>";
+		};
+		1FF3C78C1CDA531C00B21EA3 = {
+			isa = PBXGroup;
+			children = (
+				1F0438221CF5F43F00DBD06F /* StudyPlan */,
+				1F0438241CF5F43F00DBD06F /* main.c */,
+				1F0438251CF5F43F00DBD06F /* Sources */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,7 +165,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1FF3C7901CDA531C00B21EA3 /* Build configuration list for PBXProject "StudyPlanHuman" */;
+			buildConfigurationList = 1FF3C7901CDA531C00B21EA3 /* Build configuration list for PBXProject "StudyPlan" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -145,12 +187,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1FF3C7AB1CDA542700B21EA3 /* AVHuman.c in Sources */,
-				1FF3C7A51CDA538200B21EA3 /* main.c in Sources */,
-				1FF3C7A81CDA53AD00B21EA3 /* AVRunApplication.c in Sources */,
-				1F86E3D11CE0E788002A776F /* AVLinkedListNode.c in Sources */,
-				1F9A6EE71CECC78900DACD6E /* AVHumanTests.c in Sources */,
-				1F86E3D41CE4AA6E002A776F /* AVObject.c in Sources */,
+				1F0438481CF5F43F00DBD06F /* AVHuman.c in Sources */,
+				1F0438471CF5F43F00DBD06F /* main.c in Sources */,
+				1F04384C1CF5F43F00DBD06F /* AVHumanTests.c in Sources */,
+				1F0438461CF5F43F00DBD06F /* main.c in Sources */,
+				1F04384B1CF5F43F00DBD06F /* AVRunApplication.c in Sources */,
+				1F0438491CF5F43F00DBD06F /* AVLinkedListNode.c in Sources */,
+				1F04384A1CF5F43F00DBD06F /* AVObject.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +298,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1FF3C7901CDA531C00B21EA3 /* Build configuration list for PBXProject "StudyPlanHuman" */ = {
+		1FF3C7901CDA531C00B21EA3 /* Build configuration list for PBXProject "StudyPlan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1FF3C79A1CDA531C00B21EA3 /* Debug */,
