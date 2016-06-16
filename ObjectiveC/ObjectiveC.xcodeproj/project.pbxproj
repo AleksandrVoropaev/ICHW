@@ -11,6 +11,8 @@
 		1F96B8561D100FC50018B3CB /* AVCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F96B8551D100FC50018B3CB /* AVCreature.m */; };
 		1F96B85D1D1057BC0018B3CB /* AVMaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F96B85C1D1057BC0018B3CB /* AVMaleCreature.m */; };
 		1F96B8641D1058170018B3CB /* AVFemaleCreature.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F96B8631D1058170018B3CB /* AVFemaleCreature.m */; };
+		1F96B8711D12DB790018B3CB /* AVCreatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F96B8701D12DB790018B3CB /* AVCreatureTest.m */; };
+		1F96B8731D12DBA20018B3CB /* AVRunApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F96B8721D12DBA20018B3CB /* AVRunApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,10 @@
 		1F96B85C1D1057BC0018B3CB /* AVMaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMaleCreature.m; sourceTree = "<group>"; };
 		1F96B8621D1058170018B3CB /* AVFemaleCreature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVFemaleCreature.h; sourceTree = "<group>"; };
 		1F96B8631D1058170018B3CB /* AVFemaleCreature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVFemaleCreature.m; sourceTree = "<group>"; };
+		1F96B86F1D12DB790018B3CB /* AVCreatureTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCreatureTest.h; sourceTree = "<group>"; };
+		1F96B8701D12DB790018B3CB /* AVCreatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCreatureTest.m; sourceTree = "<group>"; };
+		1F96B8721D12DBA20018B3CB /* AVRunApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVRunApplication.m; sourceTree = "<group>"; };
+		1F96B8741D12DBB30018B3CB /* AVRunApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVRunApplication.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				1F96B8531D100FC50018B3CB /* AVCreature */,
+				1F96B8741D12DBB30018B3CB /* AVRunApplication.h */,
+				1F96B8721D12DBA20018B3CB /* AVRunApplication.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -87,6 +95,7 @@
 				1F96B8551D100FC50018B3CB /* AVCreature.m */,
 				1F96B85A1D1057BC0018B3CB /* AVMaleCreature */,
 				1F96B8611D1058170018B3CB /* AVFemaleCreature */,
+				1F96B8671D12C3D90018B3CB /* Tests */,
 			);
 			path = AVCreature;
 			sourceTree = "<group>";
@@ -107,6 +116,24 @@
 				1F96B8631D1058170018B3CB /* AVFemaleCreature.m */,
 			);
 			path = AVFemaleCreature;
+			sourceTree = "<group>";
+		};
+		1F96B8671D12C3D90018B3CB /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1F96B8681D12C3D90018B3CB /* AVCreatureTest */,
+			);
+			name = Tests;
+			path = ../Tests;
+			sourceTree = "<group>";
+		};
+		1F96B8681D12C3D90018B3CB /* AVCreatureTest */ = {
+			isa = PBXGroup;
+			children = (
+				1F96B86F1D12DB790018B3CB /* AVCreatureTest.h */,
+				1F96B8701D12DB790018B3CB /* AVCreatureTest.m */,
+			);
+			path = AVCreatureTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +195,9 @@
 				1F96B8491D100DE50018B3CB /* main.m in Sources */,
 				1F96B8641D1058170018B3CB /* AVFemaleCreature.m in Sources */,
 				1F96B85D1D1057BC0018B3CB /* AVMaleCreature.m in Sources */,
+				1F96B8711D12DB790018B3CB /* AVCreatureTest.m in Sources */,
 				1F96B8561D100FC50018B3CB /* AVCreature.m in Sources */,
+				1F96B8731D12DBA20018B3CB /* AVRunApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

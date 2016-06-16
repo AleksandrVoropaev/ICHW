@@ -9,40 +9,41 @@
 #import "AVCreature.h"
 
 @interface AVCreature()
-@property (atomic, retain) NSMutableArray *mutableArrayChildren;
+@property (nonatomic, retain) NSMutableArray *mutableChildren;
+
 @end
 
 @implementation AVCreature
 
 @dynamic children;
 
--(NSArray *)children {
-    return [[self.mutableArrayChildren copy] autorelease];
+- (NSArray *)children {
+    return [[self.mutableChildren copy] autorelease];
 }
 
--(void)addChild: (AVCreature *) child {
-    if (![_mutableArrayChildren containsObject:child]) {
-        [_mutableArrayChildren addObject:child];
+- (void)addChild:(AVCreature *)child {
+//    NSMutableArray *children = self.mutableChildren;
+//    if (![children containsObject:child]) {
+//        [children addObject:child];
+//    }
+    if (![self.mutableChildren containsObject:child]) {
+        [self.mutableChildren addObject:(AVCreature *)child];
     }
 }
 
--(void)removeChild: (AVCreature *) child {
-    if ([_mutableArrayChildren containsObject:child]) {
-        [_mutableArrayChildren removeObject:child];
-    }
+- (void)removeChild:(AVCreature *)child {
+    [self.mutableChildren removeObject:child];
 }
 
--(void)sayHi {
+- (void)sayHi {
     NSLog(@"Hi!");
     [self makeChildrenSayHi];
 }
 
--(void)makeChildrenSayHi {
-    for (AVCreature *child in _mutableArrayChildren) {
+- (void)makeChildrenSayHi {
+    for (AVCreature *child in self.mutableChildren) {
         [child sayHi];
     }
 }
-
-
 
 @end

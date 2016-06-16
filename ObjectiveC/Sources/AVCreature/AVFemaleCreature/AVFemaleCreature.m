@@ -10,10 +10,17 @@
 
 @implementation AVFemaleCreature
 
--(void)makeChild {
+//- (AVCreature *)makeChild {
+//    AVCreature *child = [AVCreature new];
+//    [self addChild:child];
+//    NSLog(@"We have new one!");
+//    return child;
+//}
+- (AVCreature *)makeChild {
     AVCreature *child = [AVCreature new];
     [self addChild:child];
     NSLog(@"We have new one!");
+    return child;
 }
 
 @end

@@ -10,6 +10,6 @@
 
 @interface AVFemaleCreature : AVCreature
 
--(void)makeChild;
+//- (AVCreature *)makeChild;
 
 @end

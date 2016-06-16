@@ -14,15 +14,16 @@ typedef enum {
 } AVGender;
 
 @interface AVCreature : NSObject
-@property (atomic, assign) AVGender gender;
-@property (atomic, retain) NSString *name;
-@property (atomic, assign) NSUInteger weight;
-@property (atomic, assign) NSUInteger age;
-@property (atomic, assign, readonly) NSArray *children;
+@property (nonatomic, assign) AVGender gender;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, assign) NSUInteger weight;
+@property (nonatomic, assign) NSUInteger age;
+@property (nonatomic, readonly) NSArray *children;
 
--(void)addChild: (AVCreature *) child;
--(void)removeChild: (AVCreature *) child;
--(void)sayHi;
--(void)makeChildrenSayHi;
+- (void)addChild:(AVCreature *)child;
+- (void)removeChild:(AVCreature *)child;
+- (void)sayHi;
+- (void)makeChildrenSayHi;
+- (void)performGenderSpecificOperation;
 
 @end
